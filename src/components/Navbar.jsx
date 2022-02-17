@@ -7,16 +7,17 @@ const Container = styled.div`
     top: 0;
     left: 0;
     z-index: 10;
-    padding: 20px;
-    display: flex;
-    align-items: center;
+    padding-left: 69px;
+    padding-right: 89px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
 `;
 const Contents = styled.div`
     width: 100%;
     display: flex;
     color: #ffff;
-    justify-content: center;
+    justify-content: space-between;
 `
 const Left = styled.div`
     display: flex;
