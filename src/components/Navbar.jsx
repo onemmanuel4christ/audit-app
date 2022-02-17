@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Container = styled.div`
-    width: 100;
+    /* width: 100; */
     background-color: #0F0F0F;
     position: sticky;
     top: 0;

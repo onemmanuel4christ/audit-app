@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 const Container = styled.div`
     /* background: url('./images/banner.jpeg'); */
@@ -62,6 +63,8 @@ const Button = styled.button`
 
 const Home = () => {
     return (
+        <>
+            <Navbar />
         <Container>
             <Banner>
                 <Logo src="./images/njc-logo.png" alt='njc logo' />
@@ -79,6 +82,7 @@ const Home = () => {
             </Banner>
             <Footer />
         </Container>
+        </>
     )
 }
 
