@@ -2,22 +2,21 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Container = styled.div`
-    /* width: 100; */
     background-color: #0F0F0F;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
-    padding-left: 69px;
-    padding-right: 89px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    padding: 15px;
 `;
 const Contents = styled.div`
-    width: 100%;
     display: flex;
     color: #ffff;
+    align-items: center;
+    justify-content: center;
     justify-content: space-between;
 `
 const Left = styled.div`

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Home from './pages/Home';
 import { BrowserRouter as Router , Route , Routes } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
+import Dashboard from './pages/Dashboard';
 
 const Container = styled.div`
 height: 100vh;
@@ -13,7 +14,7 @@ function App() {
              <Routes>
           <Route path="/" exact element={<Home />} />
               <Route path="/login" exact element={<LoginPage />} />
-              {/* <Route path="/second" exact element={<Second />} /> */}
+          <Route path="/dashboard" exact element={<Dashboard />} />
             </Routes>
         </Container>
       </Router>

@@ -1,12 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-    /* background-color: #E5E5E5;
-    height: 100%;
-    position: relative; */
 
-`
 const Top = styled.div`
     height: 200px;
     background-image: url('./images/login.svg');
@@ -24,7 +20,7 @@ const Bottom = styled.div`
 
 `
 
-const LoginAre = styled.div`
+const LoginArea = styled.div`
     width: 340px;
     height: 421px;
     position: absolute;
@@ -36,8 +32,7 @@ const LoginAre = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding:0 20px;
+    padding: 23px;
 `
 const Logo = styled.img`
     width: 89px;
@@ -53,30 +48,88 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
 
 `
 const Input = styled.input`
-   width: 100%; 
+   width: 90%; 
    border: 0;
    border-bottom: 1px solid #C4C4C4;
    margin-top: 28px;
    outline: none;
 `
+const ButtonLogin = styled.button`
+width: 90%;
+padding: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #ffff;
+background-color: #05A850;
+border: 0;
+outline: none;
+margin-top: 81px;
+cursor: pointer;
+`
+
+const ForgotPassword = styled.div`
+margin-top: 5px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+span{
+    margin-right: 10px;
+    font-size: 12px;
+    color: #0F0F0F; 
+}
+`
+const CheckBox = styled.input`
+margin-left: 15px;
+border: 1px solid #05A850;
+`
+const Text = styled.div`
+display: flex;
+align-items: center;
+span{
+    font-size: 12px;
+    color: #0F0F0F;
+}
+`
 const LoginPage = () => {
   return (
       <>
           <Top>
-              <LoginAre>
+              <LoginArea>
                   <Logo src='./images/njc-logo.png' />
                   <Title>National Judicial council. <br />
                       Welcome!</Title>
                   <Form >
-                      <Input type='text' placeholder='Enter User-Id' />
-                      <Input type='password' placeholder='Enter User-password' />
+                      <Input type='text' placeholder='Enter User-id' />
+                      <Input type='password' placeholder='Password' />
+                      <ForgotPassword>
+                          <Text>
+                            <CheckBox type='checkbox'/>
+                              <span>Remember me</span>
+                          </Text>
+                          <span>Forgot password?</span>
+                      </ForgotPassword>
+                          <Link to="/dashboard" style={{
+                              width: '100%',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              color: 'inherit',
+                              textDecoration: 'none',
+
+                          }}>
+                                <ButtonLogin>
+                                    Login
+                                </ButtonLogin>
+                          </Link>
                   </Form>
-              </LoginAre>
+              </LoginArea>
           </Top>
           <Bottom>
 
