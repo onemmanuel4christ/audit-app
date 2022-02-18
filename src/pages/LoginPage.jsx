@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -50,17 +49,9 @@ const Form = styled.form`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-
 `
-const Input = styled.input`
-   width: 90%; 
-   border: 0;
-   border-bottom: 1px solid #C4C4C4;
-   margin-top: 28px;
-   outline: none;
-`
-const ButtonLogin = styled.button`
-width: 90%;
+const Login = styled.a`
+width: 85%;
 padding: 15px;
 display: flex;
 align-items: center;
@@ -71,8 +62,15 @@ border: 0;
 outline: none;
 margin-top: 81px;
 cursor: pointer;
+text-decoration: none;
 `
-
+const Input = styled.input`
+   width: 90%; 
+   border: 0;
+   border-bottom: 1px solid #C4C4C4;
+   margin-top: 28px;
+   outline: none;
+`
 const ForgotPassword = styled.div`
 margin-top: 5px;
 width: 100%;
@@ -113,21 +111,12 @@ const LoginPage = () => {
                             <CheckBox type='checkbox'/>
                               <span>Remember me</span>
                           </Text>
-                          <span>Forgot password?</span>
+                         
+                            <span> <a href="/reset-password" style={{textDecoration: 'none', color: 'inherit'}}>Forgot password?</a></span>
                       </ForgotPassword>
-                          <Link to="/dashboard" style={{
-                              width: '100%',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              color: 'inherit',
-                              textDecoration: 'none',
-
-                          }}>
-                                <ButtonLogin>
-                                    Login
-                                </ButtonLogin>
-                          </Link>
+                      <Login href ="/dashboard">
+                            Login
+                      </Login>
                   </Form>
               </LoginArea>
           </Top>

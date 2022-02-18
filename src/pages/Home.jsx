@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -45,9 +44,9 @@ const Text = styled.span`
     
 
 `
-const Button = styled.button`
+const Button = styled.a`
     background-color: #05A850;
-    width: 476px;
+    width: 350px;
     font-size: 24px;
     display: flex;
     align-items: center;
@@ -57,6 +56,12 @@ const Button = styled.button`
     color: #fff;
     margin-bottom: 107px;
     cursor: pointer;
+    text-decoration: none;
+    /* :hover{
+        background-color: #f8f8f8;
+        color: #05A850;
+        border: 1px solid #05A850;
+    } */
          
 `
 
@@ -74,11 +79,9 @@ const Home = () => {
                 <Text>
                     A FAST, SIMPLE AND EFFICIENT way to review and verify the <br /> accuracy of financial records .
                 </Text>
-                    <Link to="/login" style={{textDecoration: 'none', color: 'inherit'}}>
-                        <Button>
+                        <Button href="/login">
                             Login
                         </Button>
-                    </Link>
             </Banner>
             <Footer />
         </Container>
