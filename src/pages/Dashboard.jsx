@@ -1,6 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import { NotificationsNone } from '@material-ui/icons';
+import Overview from '../components/DashboardComponents/Overview';
+import Registeration from '../components/DashboardComponents/Registeration';
+import Insurance from '../components/DashboardComponents/Insurance';
+import Drivers from '../components/DashboardComponents/Drivers';
+import FillingStation from '../components/DashboardComponents/FillingStation';
+import Coupon from '../components/DashboardComponents/Coupon';
+import Payment from '../components/DashboardComponents/Payment';
+import Reports from '../components/DashboardComponents/Reports';
 
 const Wrapper = styled.div`
 
@@ -32,8 +40,8 @@ align-items: center;
 `
 const Notification = styled.div`
     position: relative;  
-    width: 20px;
-    height: 18px;  
+    width: 28px;
+    height: 23px;  
     margin-right: 25px;
 `
 const Badge = styled.span`
@@ -61,9 +69,8 @@ const UserImageHolder = styled.div`
     justify-content: center;
     margin-right: 10px;
 `
-const UserAvater = styled.img`
+const UserAvater = styled.img``
 
-`
 const Greetings = styled.span`
     font-size: 18px;
     color: #0F0F0F;
@@ -83,6 +90,9 @@ max-width: 283px;
 background-color: black;
 height: calc(100vh - 105px);
 color: #ffff;
+position: sticky;
+left: 0;
+top: 105px;
 `
 const SidebarItems = styled.div`
 display: flex;
@@ -132,14 +142,36 @@ const LogoutBtn = styled.div`
 const Contents = styled.div`
 flex: 4;
 `
-const Calender = styled.div`
-background-color: rgba(5, 168, 80, 0.1);
-width: 339px;
-height: calc(100vh - 105px);
-flex: 1;
 
-`
 const Dashboard = () => {
+    const [component, setComponent] = useState(<Overview />)
+
+     const clickHandler = (event) => {
+         if (event === "overview") {
+            setComponent(<Overview />);
+            
+         } else if (event ==="registeration" ){
+             setComponent(<Registeration />);
+
+         } else if (event === "insurance"){
+             setComponent(<Insurance />);
+         } else if (event === "drivers") {
+             setComponent(<Drivers />);
+
+         } else if (event === "filling-station") {
+             setComponent(<FillingStation />);
+
+         } else if (event === "coupon") {
+             setComponent(<Coupon />);
+
+         } else if (event === "payments") {
+             setComponent(<Payment />);
+
+         } else {
+             setComponent(<Reports />);
+
+         }
+    }
   return (
       <Wrapper>
           <HeaderTop>
@@ -173,46 +205,46 @@ const Dashboard = () => {
           <MainBody>
               <SideBar>
                   <SidebarItems>
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("overview")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Overview</Action>
                         </SideBtnDiv>
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("registeration")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Registration of Vehicles</Action>
                       </SideBtnDiv>
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("insurance")}> 
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Insurance</Action>
                       </SideBtnDiv>
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("drivers")}> 
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Drivers</Action>
                       </SideBtnDiv>
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("filling-station")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Filling Stations</Action>
                       </SideBtnDiv>
 
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("coupon")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Coupons</Action>
                       </SideBtnDiv>
 
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("payments")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Payments</Action>
                       </SideBtnDiv>
 
-                      <SideBtnDiv>
+                      <SideBtnDiv onClick={() => clickHandler("reports")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Audit Reports</Action>
                       </SideBtnDiv>
                       <LogoutBtn>Logout</LogoutBtn>
                   </SidebarItems>
               </SideBar>
-              <Contents>Contents</Contents>
-              <Calender>Calender</Calender>
+              <Contents>{component}</Contents>
+              {/* <Calender>Calender</Calender> */}
           </MainBody>
          </Wrapper>
   )
