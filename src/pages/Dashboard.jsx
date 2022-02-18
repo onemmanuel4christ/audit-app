@@ -69,7 +69,8 @@ const UserImageHolder = styled.div`
     justify-content: center;
     margin-right: 10px;
 `
-const UserAvater = styled.img``
+const UserAvater = styled.img`
+`
 
 const Greetings = styled.span`
     font-size: 18px;
@@ -117,6 +118,8 @@ const Icon = styled.img`
 width: 20px;
 height: 23px;
 margin-right: 26px;
+margin-left: 10px;
+
 `
 
 const Action = styled.div`
