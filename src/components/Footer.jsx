@@ -5,6 +5,7 @@ const Container = styled.footer`
     position: sticky;
     width: 100%;
     bottom: 0;
+    height: 60px;
     left: 0;
     background-color: #0F0F0F;
     display: flex;

@@ -10,16 +10,13 @@ import Coupon from '../components/DashboardComponents/Coupon';
 import Payment from '../components/DashboardComponents/Payment';
 import Reports from '../components/DashboardComponents/Reports';
 
-const Wrapper = styled.div`
-
-`
 const HeaderTop = styled.div`
+    height: 86px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #FFFFFF;
-    padding: 5px 30px;
-    height: 95px;
 `
 const LeftSide = styled.div`    
 `
@@ -81,28 +78,26 @@ const Greetings = styled.span`
 
 const MainBody = styled.div`
 display: flex;
+height: calc(100vh - 86px);
 background-color: #E5E5E5;
-width: 100%;
-height: calc(100vh - 105px);
 `
 const SideBar = styled.div`
-flex: 1;
-max-width: 283px;
+width: 200px;
 background-color: black;
-height: calc(100vh - 105px);
+height: calc(100vh - 86px);
 color: #ffff;
 position: sticky;
 left: 0;
-top: 105px;
+top: 86px;
 `
 const SidebarItems = styled.div`
 display: flex;
 flex-direction: column;
-margin-left: 18px;
-margin-top: 107px;
+margin-left: 2px;
+margin-top: 86px;
 `
 const SideBtnDiv = styled.div`
-    width: 256px;
+    width: 180px;
     display: flex;
     align-items: center;
     padding: 5px;
@@ -110,20 +105,18 @@ const SideBtnDiv = styled.div`
     cursor: pointer;
     :hover{
     background-color: #05A850;
-
     }
 `
-
 const Icon = styled.img`
-width: 20px;
-height: 23px;
-margin-right: 26px;
-margin-left: 10px;
+    width: 20px;
+    height: 23px;
+    margin-right: 26px;
+    margin-left: 10px;
 
 `
 
 const Action = styled.div`
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
 `
 const LogoutBtn = styled.div`
@@ -135,6 +128,7 @@ const LogoutBtn = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 40px;
+    cursor: pointer;
     font-weight: bold;
     :hover{
         background-color: #ffff;
@@ -143,7 +137,10 @@ const LogoutBtn = styled.div`
     }
 `
 const Contents = styled.div`
-flex: 4;
+width: calc(100vw - 238px);
+display: flex;
+/* align-items: center; */
+justify-content: space-between;
 `
 
 const Dashboard = () => {
@@ -176,7 +173,7 @@ const Dashboard = () => {
          }
     }
   return (
-      <Wrapper>
+      <>
           <HeaderTop>
               <LeftSide>
                   <Logo src='./images/njc-logo.png' />
@@ -187,9 +184,7 @@ const Dashboard = () => {
               <RightSide>
                   <Notification>
                       <NotificationsNone />
-                      <Badge>
-                      2
-                      </Badge>
+                      <Badge>2</Badge>
                   </Notification>
                   <UserImageHolder>
                       <UserAvater src="./images/avater.svg" alt="avater" />
@@ -211,16 +206,16 @@ const Dashboard = () => {
                       <SideBtnDiv onClick={() => clickHandler("overview")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Overview</Action>
-                        </SideBtnDiv>
+                      </SideBtnDiv>
                       <SideBtnDiv onClick={() => clickHandler("registeration")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Registration of Vehicles</Action>
                       </SideBtnDiv>
-                      <SideBtnDiv onClick={() => clickHandler("insurance")}> 
+                      <SideBtnDiv onClick={() => clickHandler("insurance")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Insurance</Action>
                       </SideBtnDiv>
-                      <SideBtnDiv onClick={() => clickHandler("drivers")}> 
+                      <SideBtnDiv onClick={() => clickHandler("drivers")}>
                           <Icon src="./images/btn-icon.svg" />
                           <Action>Drivers</Action>
                       </SideBtnDiv>
@@ -246,10 +241,12 @@ const Dashboard = () => {
                       <LogoutBtn>Logout</LogoutBtn>
                   </SidebarItems>
               </SideBar>
-              <Contents>{component}</Contents>
-              {/* <Calender>Calender</Calender> */}
+              <Contents>
+                  {component}
+              </Contents>
           </MainBody>
-         </Wrapper>
+        
+         </>
   )
 }
 

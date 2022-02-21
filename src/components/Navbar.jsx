@@ -4,13 +4,14 @@ import styled from 'styled-components'
 const Container = styled.div`
     background-color: #0F0F0F;
     position: sticky;
+    height: 86px;
+    padding: auto;
     top: 0;
     left: 0;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;  
-    padding: 15px;
 `;
 const Contents = styled.div`
     display: flex;

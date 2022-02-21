@@ -12,9 +12,9 @@ function App() {
       <Router>
         <Container>
              <Routes>
-          <Route path="/" exact element={<Home />} />
-              <Route path="/login" exact element={<LoginPage />} />
-          <Route path="/dashboard" exact element={<Dashboard />} />
+                <Route path="/" exact element={<Home />} />
+                <Route path="/login" exact element={<LoginPage />} />
+                <Route path="/dashboard" exact element={<Dashboard />} />
             </Routes>
         </Container>
       </Router>

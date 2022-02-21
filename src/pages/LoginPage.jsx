@@ -15,8 +15,6 @@ const Top = styled.div`
 const Bottom = styled.div`
     background-color: #E5E5E5;
     height: calc(100vh - 200px);
-  
-
 `
 
 const LoginArea = styled.div`
@@ -63,6 +61,7 @@ outline: none;
 margin-top: 81px;
 cursor: pointer;
 text-decoration: none;
+border-radius: 5px;
 `
 const Input = styled.input`
    width: 90%; 

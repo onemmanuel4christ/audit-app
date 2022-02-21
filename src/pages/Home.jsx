@@ -4,8 +4,8 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
 const Container = styled.div`
-    /* background: url('./images/banner.jpeg'); */
     background-color: #0F0F0FB2;
+    height: calc(100vh - 86px);
     object-fit: cover;
     display: flex;
     flex-direction: column;
@@ -14,12 +14,11 @@ const Container = styled.div`
     justify-content: center;
 `
 const Banner = styled.div`
-    width: 814px;
+    /* width: 814px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;   
 `
 const Logo = styled.img`
     margin-top: 20px;
@@ -56,29 +55,24 @@ const Button = styled.a`
     color: #fff;
     margin-bottom: 107px;
     cursor: pointer;
-    text-decoration: none;
-    /* :hover{
-        background-color: #f8f8f8;
-        color: #05A850;
-        border: 1px solid #05A850;
-    } */
-         
+    text-decoration: none;  
+    border-radius: 5px;      
 `
 
 
 const Home = () => {
     return (
         <>
-            <Navbar />
+          <Navbar />
         <Container>
             <Banner>
                 <Logo src="./images/njc-logo.png" alt='njc logo' />
                         <Title>
-                              NATIONAL JUDICIARY COUNCIL
+                            NATIONAL JUDICIARY COUNCIL
                         </Title>
-                <Text>
-                    A FAST, SIMPLE AND EFFICIENT way to review and verify the <br /> accuracy of financial records .
-                </Text>
+                        <Text>
+                            A FAST, SIMPLE AND EFFICIENT way to review and verify the <br /> accuracy of financial records .
+                        </Text>
                         <Button href="/login">
                             Login
                         </Button>
