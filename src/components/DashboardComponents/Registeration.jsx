@@ -79,17 +79,7 @@ const FileLabel= styled.label`
     border: 2px solid #05A850;  
  }
 `
-const SelectBox= styled.select`
-    padding:10px 5px;
-    width: 100%;
-    margin-top: 10px;
-    margin-right: 23px;
-    margin-bottom: 40px;
-`
-const OptionBox = styled.option`
-    font-weight: 700;
-    font-size: 14px;
-`
+
 const Label = styled.label`
     font-weight: 700;
     font-size: 14px;
