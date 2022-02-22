@@ -12,6 +12,7 @@ const Container = styled.div`
     background-repeat: no-repeat;
     align-items: center;
     justify-content: center;
+    width: 100%;
 `
 const Banner = styled.div`
     /* width: 814px; */
