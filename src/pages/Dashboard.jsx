@@ -94,7 +94,7 @@ const Hamburger = styled.div`
 position: absolute;
 width: 20px;
 height: 20px;
-top: 10px;
+top: 15px;
 left: 70%;
 cursor: pointer;
 color: #FFFFFF;
@@ -103,7 +103,7 @@ const HmLine = styled.div`
     width: 100%;
     height: 2px;
     border-radius: 3px;
-    background-color: #FFFFFF;
+    background-color: #e7e2e2dd;
     margin-bottom: 4px;
 `
 
