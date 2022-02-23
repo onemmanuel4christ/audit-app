@@ -216,7 +216,7 @@ const SaveButton = styled.div`
                             </InputArea>
                    </InnputContainer>
                             <SaveDiv>
-                                <SaveButton>Submit & Save</SaveButton>
+                                <SaveButton>Save</SaveButton>
                             </SaveDiv>
                    
                 </Form>
