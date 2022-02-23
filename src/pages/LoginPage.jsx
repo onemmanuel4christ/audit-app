@@ -58,7 +58,7 @@ color: #ffff;
 background-color: #05A850;
 border: 0;
 outline: none;
-margin-top: 81px;
+margin-top: 30px;
 cursor: pointer;
 text-decoration: none;
 border-radius: 5px;
