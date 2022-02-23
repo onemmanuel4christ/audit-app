@@ -222,8 +222,8 @@ top: 10;
 const Overview = () => {
   const [sideOpen, setSideOpen] = useState(false);
   const [myDate, setMyDate]= useState(new Date());
-  const [readMessage, setReadMessage]= useState(true);
-
+  // const [readMessage, setReadMessage]= useState(true);
+let readMessage = false;
   return (
     <Wrap>
       <Main>
