@@ -20,6 +20,9 @@ const HeaderTop = styled.div`
 `
 const LeftSide = styled.div`    
 `
+const WrapperDiv = styled.div`
+width: 100vw;
+`
 const Logo = styled.img`
     width: 85px;
     height: 85px;  
@@ -120,6 +123,7 @@ const SideBtnDiv = styled.div`
     padding: 5px;
     margin-bottom: 10px;
     cursor: pointer;
+    border-radius: 5px;
     :hover{
     background-color: #05A850;
     }
@@ -152,6 +156,7 @@ const LogoutBtn = styled.div`
     border: 1px solid #FFFFFF;
     display: flex;
     align-items: center;
+    border-radius: 5px;
     justify-content: center;
     margin-top: 30px;
     margin-left: 5px;
@@ -204,7 +209,7 @@ const Dashboard = () => {
     }
 
   return (
-      <>
+      <WrapperDiv>
           <HeaderTop>
               <LeftSide>
                   <Logo src='./images/njc-logo.png' />
@@ -333,7 +338,7 @@ const Dashboard = () => {
                   {component}
               </Contents>
           </MainBody>
-         </>
+         </WrapperDiv>
   )
 }
 

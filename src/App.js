@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 const Container = styled.div`
 height: 100vh;
 width: 100vw;
+overflow: hidden;
 `
 function App() {
   return (

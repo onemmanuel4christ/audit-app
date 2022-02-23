@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
+import DateMomentUtils from '@date-io/moment'; // choose your lib
+import {
+    // DatePicker,
+    KeyboardDatePicker,
+    MuiPickersUtilsProvider,
+    } from '@material-ui/pickers';
 import styled from 'styled-components';
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
+
 
 import "react-datepicker/dist/react-datepicker.css";
 const Wrapper = styled.div`
@@ -33,6 +40,19 @@ const InputArea = styled.div`
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+
+`
+const DateWrapper = styled.div`
+display: flex;
+justify-content: start;
+    padding:5px 10px;
+    width: 93%;
+    margin-top: 10px;
+    margin-right: 23px;
+    margin-bottom: 40px;
+    border: 1px solid #0F0F0F80;
+    outline: none;
+    border-radius: 5px;
 
 `
 const Input= styled.input`
@@ -84,8 +104,31 @@ const Label = styled.label`
     font-weight: 700;
     font-size: 14px;
 `
+const SaveDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 35px;
+
+`
+const SaveButton = styled.div`
+ font-weight: 400;
+ font-size: 18px;
+ color: #05A850;
+ padding: 10px;
+ border: 1px solid #05A850;
+ border-radius: 5px;
+ cursor: pointer;
+ :hover{
+     background-color: #05A850;
+     color: white;
+ }
+
+
+`
  const Registeration = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const [myDate, setMyDate]= useState(null);
+    
     return(
         <Wrapper>
                 <Title>Registration of Vehicles</Title>
@@ -121,17 +164,347 @@ const Label = styled.label`
                    </InnputContainer>
                    <InnputContainer>
                             <InputArea>
-                            <Label>What is the year of purchase? </Label>
-                            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                            <Label >What is the year of purchase? </Label>
+                            <DateWrapper>
+                            <MuiPickersUtilsProvider utils={DateMomentUtils}>
+                            
+                            <KeyboardDatePicker 
+                            style={{width: '100%',
+                            }}
+                            // clearable
+                            InputAdornmentProps={{position: 'end'}}
+                            value={myDate} 
+                            placeholder="Year of purchase"
+                            onChange={setMyDate} 
+                            format="MM/dd/yyyy"
+                            autoOk
+                                                />
+                            </MuiPickersUtilsProvider>
+                            </DateWrapper>
                             </InputArea>
                             <InputArea>
                                 <Label>Enter Amount</Label>
                                 <Input type="number" placeholder='Vehicle Type' name='vehicleType'/>
                             </InputArea>
-                            
                    </InnputContainer>
+                            <SaveDiv>
+                                <SaveButton>Submit & Save</SaveButton>
+                            </SaveDiv>
                    
                 </Form>
+                <div style={{
+            margin: '35px',
+            height: '40vh',
+            overflowY: 'auto',
+            paddingBottom: '10px',
+          }}>
+            <table className='table'>
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>VEHICLE TYPE</th>
+                  <th>VEHICLE MODEL</th>
+                  <th>YEAR OF PURCHASE</th>
+                  <th>REGISTRATION NUMBER</th>
+                  <th>AMOUNT</th>
+                  <th>STATUS</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+               
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>suv</td>
+                  <td>suv</td>
+                  <td>12/09/2021</td>
+                  <td>ABC 123D</td>
+                  <td>3,500,000</td>
+                  <td>Pending</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
         </Wrapper>
     )
 }
