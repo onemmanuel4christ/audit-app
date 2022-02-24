@@ -11,23 +11,23 @@ const Wrap = styled.div`
 `
 
 const Side = styled.div`
-  position: relative;
+  /* position: relative; */
 `
-const SideOpen = styled.div`
-position: absolute;
-width: 28px;
-height: 43px;
-border-radius: 5px;
-background-color: #0F0F0F;
-cursor: pointer;
-color: #fff;
-display: flex;
-align-items: center;
-justify-content: center;
-top: 280px;
-left: 0;
-color: #fff;
-`
+// const SideOpen = styled.div`
+// position: absolute;
+// width: 28px;
+// height: 43px;
+// border-radius: 5px;
+// background-color: #0F0F0F;
+// cursor: pointer;
+// color: #fff;
+// display: flex;
+// align-items: center;
+// justify-content: center;
+// top: 280px;
+// left: 0;
+// color: #fff;
+// `
 const CalenderWrapper = styled.div`
   position: relative;
   padding: 10px 10px;
@@ -289,14 +289,7 @@ let readMessage = false;
               </SelectBox>
               
             </FilterSection>
-            {/* <ExportDiv>
-              <span>Export file</span>
-              <span>
-                <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.875 3.2538V12.75H6.125V3.2538L3.28737 6.01035L2.05012 4.80845L7 0L11.9499 4.80845L10.7126 6.01035L7.875 3.2538ZM0 11.9H1.75V15.3H12.25V11.9H14V15.3C14 16.235 13.2125 17 12.25 17H1.75C0.7875 17 0 16.1814 0 15.3V11.9Z" fill="white"/>
-                </svg>
-              </span>
-            </ExportDiv> */}
+           
           </Body>
           <div style={{
             margin: '35px',
@@ -427,11 +420,11 @@ let readMessage = false;
           </div> 
         </Main>
       <Side>
-            <SideOpen onClick={() =>setSideOpen(!sideOpen)}> 
+            {/* <SideOpen onClick={() =>setSideOpen(!sideOpen)}> 
                   <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.12109 1.56441L4.70688 -2.8672e-05L-0.00022627 5.20708L4.70688 10.4142L6.12109 8.84975L2.8282 5.20708L6.12109 1.56441Z" fill="white"/>
                   </svg>
-              </SideOpen>
+              </SideOpen> */}
           
           <CalenderWrapper>
             <>

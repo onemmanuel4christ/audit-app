@@ -127,9 +127,8 @@ const SaveButton = styled.div`
 
 `
  const Registeration = () => {
-    const [myDate, setMyDate]= useState(null);
-    
-    return(
+    const [myDate, setMyDate] = useState(null);
+      return(
         <Wrapper>
                 <Title>Registration of Vehicles</Title>
                 <Form>
@@ -154,11 +153,11 @@ const SaveButton = styled.div`
                    <InnputContainer>
                             <InputArea>
                             <Label>Enter the vehicle model</Label>
-                            <Input type="text" placeholder='Vehicle Type' name='vehicleType'/>
+                            <Input type="text" placeholder='Vehicle model' name='vehicleType'/>
                             </InputArea>
                             <InputArea>
                                 <Label>Enter Registration Number</Label>
-                                <Input type="number" placeholder='Vehicle Type' name='vehicleType'/>
+                                <Input type="number" placeholder='Registration number' name='regno'/>
                             </InputArea>
                             
                    </InnputContainer>
@@ -184,7 +183,7 @@ const SaveButton = styled.div`
                             </InputArea>
                             <InputArea>
                                 <Label>Enter Amount</Label>
-                                <Input type="number" placeholder='Vehicle Type' name='vehicleType'/>
+                                <Input type="number" placeholder='Amount' name='amt'/>
                             </InputArea>
                    </InnputContainer>
                             <SaveDiv>

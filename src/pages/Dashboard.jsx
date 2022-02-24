@@ -180,7 +180,25 @@ const Dashboard = () => {
     
     const [menuOpen, setMenuOpen] = useState(false)
     const [component, setComponent] = useState(<Overview />)
-
+    let timeOfDay;
+    const date = new Date();
+    const hours = date.getHours();
+    const styles = {
+      fontSize: 24,
+      fontWeight: 'bold',
+    }
+  
+    if (hours < 12) {
+      timeOfDay = 'morning';
+      styles.color = "#D90000";
+    } else if (hours >= 12 && hours < 17) {
+      timeOfDay = 'afternoon';
+      styles.color = "#05A850";
+    } else {
+      timeOfDay = 'night';
+      styles.color = "#05A850";
+    }
+   
      const clickHandler = (event) => {
          if (event === "overview") {
             setComponent(<Overview />);
@@ -225,7 +243,7 @@ const Dashboard = () => {
                   <UserImageHolder>
                       <UserAvater src="./images/avater.svg" alt="avater" />
                   </UserImageHolder>
-                  <Greetings>Good Morning!</Greetings> 
+                  <Greetings style={styles}>Good {timeOfDay}!</Greetings> 
                   <span style={{
                       cursor: 'pointer',
                       
