@@ -182,10 +182,9 @@ const SaveButton = styled.div`
                                     </MuiPickersUtilsProvider>
                                 </DateWrapper>
                             </InputArea>
-
                             <InputArea>
                                 <Label>Amount Paid</Label>
-                                <Input type="number" placeholder='filling station location' name='telno'/>
+                                <Input type="number" placeholder='enter amount' name='amtpaid'/>
 
                             </InputArea>
                    </InnputContainer>

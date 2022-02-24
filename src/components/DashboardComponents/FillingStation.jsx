@@ -153,7 +153,7 @@ const SaveButton = styled.div`
 
                             <InputArea>
                                 <Label>Enter Telephone number</Label>
-                                <Input type="number" placeholder='filling station location' name='telno'/>
+                                <Input type="number" placeholder='+234' name='telno'/>
 
                             </InputArea>
                    </InnputContainer>
