@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.footer`
+const Container = styled.div`
     position: sticky;
     width: 100%;
     bottom: 0;

@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const WrapperDiv = styled.div`
+    width: 100%;
+    height: 100%;
 
+`
 const Top = styled.div`
     height: 200px;
     background-image: url('./images/login.svg');
@@ -15,6 +19,7 @@ const Top = styled.div`
 const Bottom = styled.div`
     background-color: #E5E5E5;
     height: calc(100vh - 200px);
+    
 `
 
 const LoginArea = styled.div`
@@ -96,12 +101,13 @@ span{
 `
 const LoginPage = () => {
   return (
-      <>
+      <WrapperDiv>
           <Top>
               <LoginArea>
                   <Logo src='./images/njc-logo.png' />
-                  <Title>National Judicial council. <br />
-                      Welcome!</Title>
+                        <Title>
+                            National Judicial council. <br /> Welcome!
+                        </Title>
                   <Form >
                       <Input type='text' placeholder='Enter User-id' />
                       <Input type='password' placeholder='Password' />
@@ -113,17 +119,18 @@ const LoginPage = () => {
                          
                             <span> <a href="/reset-password" style={{textDecoration: 'none', color: 'inherit'}}>Forgot password?</a></span>
                       </ForgotPassword>
+                     
                       <Login href ="/dashboard">
                             Login
                       </Login>
+
                   </Form>
               </LoginArea>
           </Top>
-          <Bottom>
+            <Bottom>
 
-          </Bottom>
-         
-      </>
+          </Bottom>   
+      </WrapperDiv>
   )
 }
 

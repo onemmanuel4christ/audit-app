@@ -10,8 +10,11 @@ import Coupon from '../components/DashboardComponents/Coupon';
 import Payment from '../components/DashboardComponents/Payment';
 import Reports from '../components/DashboardComponents/Reports';
 
+const WrapperDiv = styled.div`
+    width: 100%;
+    height: 100%;
+`
 const HeaderTop = styled.div`
-    height: 86px;
     padding: 0 20px;
     display: flex;
     align-items: center;
@@ -19,9 +22,6 @@ const HeaderTop = styled.div`
     background-color: #FFFFFF;
 `
 const LeftSide = styled.div`    
-`
-const WrapperDiv = styled.div`
-width: 100vw;
 `
 const Logo = styled.img`
     width: 85px;
@@ -117,7 +117,6 @@ margin-left: 2px;
 margin-top: 86px;
 `
 const SideBtnDiv = styled.div`
-    /* width: 180px; */
     display: flex;
     align-items: center;
     padding: 5px;
@@ -171,7 +170,8 @@ const LogoutBtn = styled.div`
 `
 const Contents = styled.div`
 width: 100%;
-/* width: calc(100vw - 170px); */
+height: 100%;
+overflow: auto;
 display: flex;
 justify-content: space-between;
 `

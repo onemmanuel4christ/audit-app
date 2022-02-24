@@ -136,7 +136,7 @@ const SaveButton = styled.div`
     
     return(
         <Wrapper>
-                <Title>Insurance page</Title>
+                <Title>Renewal Of Insurance</Title>
                 <Form>
                     <InnputContainer>
                             <InputArea>
@@ -166,7 +166,7 @@ const SaveButton = styled.div`
                                                 clearable
                                                 InputAdornmentProps={{position: 'end'}}
                                                 value={myDate} 
-                                                placeholder="Year of purchase"
+                                                placeholder="insurance date"
                                                 onChange={setMyDate} 
                                                 format="MM/dd/yyyy"
                                                 autoOk
@@ -187,7 +187,7 @@ const SaveButton = styled.div`
                                             clearable
                                             InputAdornmentProps={{position: 'end'}}
                                             value={myDate} 
-                                            placeholder="Year of purchase"
+                                            placeholder="previous date"
                                             onChange={setMyDate} 
                                             format="MM/dd/yyyy"
                                             autoOk
@@ -206,7 +206,7 @@ const SaveButton = styled.div`
                                                 clearable
                                                 InputAdornmentProps={{position: 'end'}}
                                                 value={myDate} 
-                                                placeholder="Year of purchase"
+                                                placeholder="expected Date"
                                                 onChange={setMyDate} 
                                                 format="MM/dd/yyyy"
                                                 autoOk
@@ -222,8 +222,6 @@ const SaveButton = styled.div`
                 </Form>
                 <div style={{
             margin: '35px',
-            height: '35vh',
-            overflowY: 'auto',
             paddingBottom: '10px',
           }}>
             <table className='table'>
@@ -306,230 +304,6 @@ const SaveButton = styled.div`
                     <button>Delete</button>
                   </td>
                 </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-               
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                
               </tbody>
             </table>
           </div>

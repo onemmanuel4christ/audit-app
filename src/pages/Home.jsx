@@ -3,23 +3,31 @@ import styled from 'styled-components'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
-const Container = styled.div`
-    background-color: #0F0F0FB2;
-    height: calc(100vh - 86px);
-    object-fit: cover;
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    align-items: center;
-    justify-content: center;
+const WrapperDiv = styled.div`
     width: 100%;
+    height: 100%;
+    background-color: #0F0F0FB2;
+
 `
+// const Container = styled.div`
+//     height: calc(100vh - 86px);
+//     object-fit: cover;
+//     display: flex;
+//     flex-direction: column;
+//     background-repeat: no-repeat;
+//     align-items: center;
+//     justify-content: center;
+//     width: 100%;
+// `
+
 const Banner = styled.div`
-    /* width: 814px; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: center;   
+    object-fit: cover;
+    background-repeat: no-repeat;   
+    background: url('./images/banner.jpeg');
 `
 const Logo = styled.img`
     margin-top: 20px;
@@ -60,27 +68,24 @@ const Button = styled.a`
     border-radius: 5px;      
 `
 
-
 const Home = () => {
     return (
-        <>
+        <WrapperDiv>
           <Navbar />
-        <Container>
-            <Banner>
-                <Logo src="./images/njc-logo.png" alt='njc logo' />
-                        <Title>
-                            NATIONAL JUDICIARY COUNCIL
-                        </Title>
-                        <Text>
-                            A FAST, SIMPLE AND EFFICIENT way to review and verify the <br /> accuracy of financial records .
-                        </Text>
-                        <Button href="/login">
-                            Login
-                        </Button>
-            </Banner>
-            <Footer />
-        </Container>
-        </>
+                <Banner>
+                    <Logo src="./images/njc-logo.png" alt='njc logo' />
+                            <Title>
+                                NATIONAL JUDICIARY COUNCIL
+                            </Title>
+                            <Text>
+                                A FAST, SIMPLE AND EFFICIENT way to review and verify the <br /> accuracy of financial records .
+                            </Text>
+                            <Button href="/login">
+                                Login
+                            </Button>
+                </Banner>
+                <Footer />
+        </WrapperDiv>
     )
 }
 

@@ -1,65 +1,84 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import DateFnsUtils from "@date-io/date-fns";
-import {
-    DatePicker,
-    MuiPickersUtilsProvider,
-} from '@material-ui/pickers';
-
-import {createMuiTheme} from "@material-ui/core";
-import {ThemeProvider} from "@material-ui/styles";
+import { Calendar } from "react-calendar"
 import 'bootstrap/dist/css/bootstrap.css'
-const materialTheme = createMuiTheme({
-  overrides: {
-          MuiPickersToolbar: {
-            backgroundColor: "red",
-          toolbar: {
-              display: 'none',
-          },
-      },
-      MuiPickersCalendarHeader: {
-          switchHeader: {
-              backgroundColor: "white",
-              color: "#1b5e20",    
-          },
-      },
-  },
-});
+
 const Wrap = styled.div`
-  display: flex;
-  justify-content: space-between;
   width: 100%; 
-  
+  height: 100%;
+  display: flex;
+  justify-content: space-between; 
 `
 
 const Side = styled.div`
-position: relative;
-/* width: 144px; */
-height: calc(100vh - 86px);
-background-color: rgba(5, 168, 80, 0.1);
+  position: relative;
 `
-
 const SideOpen = styled.div`
 position: absolute;
 width: 28px;
 height: 43px;
 border-radius: 5px;
 background-color: #0F0F0F;
+cursor: pointer;
 color: #fff;
 display: flex;
 align-items: center;
 justify-content: center;
-top: 250px;
+top: 280px;
 left: 0;
-cursor: pointer;
 color: #fff;
 `
+const CalenderWrapper = styled.div`
+  position: relative;
+  padding: 10px 10px;
+  height: calc(100vh - 86px);
+  padding: 10px 25px;
+  width: 339px;
+  max-width: 339px;
+  background-color: rgba(5, 168, 80, 0.1);
 
+`
+const NotifyTitle = styled.h2`
+font-weight: 700;
+font-size: 24px;
+margin-top: 87px;
+`
+const MyNotificationArea = styled.div`
+  width: 100%;
+
+`
+
+const InfoDiv = styled.div`
+  position: relative;
+  width: 289px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 21px 35px;
+  justify-content: start;
+  background-color: #FFF;
+  margin-bottom: 17px;
+  border-radius: 5px;
+
+  span{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+`
+const ReadIndicator = styled.div`
+position: absolute;
+width: 10px;
+height: 10px;
+left:260px;
+top: 10;
+`
 const Main = styled.div`
 
 `
 const Title = styled.div`
-font-weight: 700;
+  font-weight: 700;
   font-size: 16px;
   margin-left: 40px;
   margin-top: 50px;
@@ -71,7 +90,7 @@ const StatusBar = styled.div`
   margin-top: 24px;
 `
 const StatusContainer = styled.div`
-    width: 295px;
+    width: 250px;
     display: flex;
     align-items: center;
     height: 122px;
@@ -89,12 +108,11 @@ const StatusIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 3px;
   margin-right: 10px;
   margin-left: 10px;
   svg{
-    width: 20px;
-    height: 20px;
+   
     border-radius: 50%;
   }
 `
@@ -138,21 +156,21 @@ const FilterSection = styled.div`
    const Option = styled.option`
    display: flex;
     `
-    const ExportDiv = styled.div`
-    background-color: #05A850;
-    width: 157px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 400;
-    padding: 15px;
-    border-radius: 5px;
-    gap: 13px;
-    span{
-      color: #FFFFFF;
-    }
-  `
+  //   const ExportDiv = styled.div`
+  //   background-color: #05A850;
+  //   width: 157px;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   font-size: 14px;
+  //   font-weight: 400;
+  //   padding: 15px;
+  //   border-radius: 5px;
+  //   gap: 13px;
+  //   span{
+  //     color: #FFFFFF;
+  //   }
+  // `
   const InputWrapper = styled.div`
   display: flex;
   width: 550px;
@@ -183,46 +201,10 @@ cursor: pointer;
   }
 `
 
-const CalenderWrapper = styled.div`
-  padding: 10px 20px;
-`
-const NotifyTitle = styled.h2`
-font-weight: 700;
-font-size: 24px;
-`
-const NotifyWrapper = styled.h2`
-  margin-left: 20px;
-  margin-right: 20px;
-position: relative;
 
-`
-const InfoDiv = styled.h2`
-width: 289px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 21px 35px;
-  justify-content: start;
-  background-color: #FFF;
-
-  span{
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-
-`
-const ReadIndicator = styled.div`
-position: absolute;
-width: 10px;
-height: 10px;
-left:292px;
-top: 10;
-`
 const Overview = () => {
   const [sideOpen, setSideOpen] = useState(false);
   const [myDate, setMyDate]= useState(new Date());
-  // const [readMessage, setReadMessage]= useState(true);
 let readMessage = false;
   return (
     <Wrap>
@@ -307,19 +289,17 @@ let readMessage = false;
               </SelectBox>
               
             </FilterSection>
-            <ExportDiv>
+            {/* <ExportDiv>
               <span>Export file</span>
               <span>
                 <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.875 3.2538V12.75H6.125V3.2538L3.28737 6.01035L2.05012 4.80845L7 0L11.9499 4.80845L10.7126 6.01035L7.875 3.2538ZM0 11.9H1.75V15.3H12.25V11.9H14V15.3C14 16.235 13.2125 17 12.25 17H1.75C0.7875 17 0 16.1814 0 15.3V11.9Z" fill="white"/>
                 </svg>
               </span>
-            </ExportDiv>
+            </ExportDiv> */}
           </Body>
           <div style={{
             margin: '35px',
-            height: '40vh',
-            overflowY: 'auto',
             paddingBottom: '10px',
           }}>
             <table className='table'>
@@ -428,191 +408,7 @@ let readMessage = false;
                     <button>Delete</button>
                   </td>
                 </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-               
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                
-                <tr>
+                 <tr>
                   <td><input type="checkbox" /></td>
                   <td>suv</td>
                   <td>suv</td>
@@ -628,34 +424,24 @@ let readMessage = false;
                 
               </tbody>
             </table>
-          </div>
-          
+          </div> 
         </Main>
-
-
       <Side>
-        <SideOpen onClick={() =>setSideOpen(!sideOpen)}> 
-        {sideOpen ? '>' :
-            <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.12109 1.56441L4.70688 -2.8672e-05L-0.00022627 5.20708L4.70688 10.4142L6.12109 8.84975L2.8282 5.20708L6.12109 1.56441Z" fill="white"/>
-            </svg>
-        }
-        </SideOpen>
+            <SideOpen onClick={() =>setSideOpen(!sideOpen)}> 
+                  <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6.12109 1.56441L4.70688 -2.8672e-05L-0.00022627 5.20708L4.70688 10.4142L6.12109 8.84975L2.8282 5.20708L6.12109 1.56441Z" fill="white"/>
+                  </svg>
+              </SideOpen>
+          
           <CalenderWrapper>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <ThemeProvider theme={materialTheme}>
-            
-                <DatePicker
-                    value={myDate}
-                    onChange={setMyDate}
-                    variant="static"
+            <>
+                <Calendar 
+                onChange={setMyDate} 
+                value={myDate} 
                 />
-          </ThemeProvider>
-            </MuiPickersUtilsProvider>
-          </CalenderWrapper>
-          <NotifyWrapper>
+            </>
+          <MyNotificationArea>
             <NotifyTitle>Notifications</NotifyTitle>
-           
             <InfoDiv>
             {readMessage ? 
             
@@ -671,7 +457,7 @@ let readMessage = false;
               <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20004 3.5L2 2.29996L2.29996 2L3.5 3.20004L4.70004 2L5 2.29996L3.79996 3.5L5 4.70004L4.70004 5L3.5 3.79996L2.29996 5L2 4.70004L3.20004 3.5Z" fill="white"/>
               </svg>
             </ReadIndicator>}
-              <span>A file is sent from Admin.</span>
+            <span>A file is sent from Admin.</span>
               <span style={{
                 fontSize: '14px',
                 color: '#0F0F0F80',
@@ -692,17 +478,16 @@ let readMessage = false;
               <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20004 3.5L2 2.29996L2.29996 2L3.5 3.20004L4.70004 2L5 2.29996L3.79996 3.5L5 4.70004L4.70004 5L3.5 3.79996L2.29996 5L2 4.70004L3.20004 3.5Z" fill="white"/>
               </svg>
             </ReadIndicator>}
-              <span>General meeting.</span>
+            <span>A file is sent from Admin.</span>
               <span style={{
                 fontSize: '14px',
                 color: '#0F0F0F80',
               }}>{myDate.toUTCString()}</span>
             </InfoDiv>
-          </NotifyWrapper>
-
-      </Side>
+          </MyNotificationArea>
+          </CalenderWrapper>    
+      </Side> 
     </Wrap>
-
   )
 }
 

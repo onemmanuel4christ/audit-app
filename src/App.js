@@ -5,9 +5,12 @@ import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 
 const Container = styled.div`
-height: 100vh;
-width: 100vw;
-overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  max-width: 1678px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0 auto;
 `
 function App() {
   return (
