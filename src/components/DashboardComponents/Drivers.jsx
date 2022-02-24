@@ -1,10 +1,5 @@
-import React, { useState } from 'react'
-import DateMomentUtils from '@date-io/moment'; // choose your lib
-import {
-    // DatePicker,
-    KeyboardDatePicker,
-    MuiPickersUtilsProvider,
-    } from '@material-ui/pickers';
+import React from 'react'
+
 import styled from 'styled-components';
 // import DatePicker from "react-datepicker";
 
@@ -47,19 +42,7 @@ const InputArea = styled.div`
     width: 100%;
 
 `
-const DateWrapper = styled.div`
-display: flex;
-justify-content: start;
-    padding:5px 10px;
-    width: 93%;
-    margin-top: 10px;
-    margin-right: 23px;
-    margin-bottom: 40px;
-    border: 1px solid #0F0F0F80;
-    outline: none;
-    border-radius: 5px;
 
-`
 const Input= styled.input`
     padding:10px 10px;
     width: 93%;
@@ -132,7 +115,6 @@ const SaveButton = styled.div`
 
 `
  const Drivers = () => {
-    const [myDate, setMyDate]= useState(null);
     
     return(
         <Wrapper>
