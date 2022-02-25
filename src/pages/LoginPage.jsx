@@ -35,6 +35,11 @@ const LoginArea = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 23px;
+    @media only screen and (max-width: 800px) {
+     /* width: 80%; */
+     padding-bottom: 2rem;
+     height: 60vh;
+    }
 `
 const Logo = styled.img`
     width: 89px;
@@ -52,6 +57,9 @@ const Form = styled.form`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    @media only screen and (max-width: 800px) {
+     width: 90%;
+    }
 `
 const Login = styled.a`
 width: 85%;
@@ -67,6 +75,12 @@ margin-top: 30px;
 cursor: pointer;
 text-decoration: none;
 border-radius: 5px;
+@media only screen and (max-width: 800px) {
+     width: 80%;
+     padding: 1rem;
+     margin-top: 1rem;
+
+    }
 `
 const Input = styled.input`
    width: 90%; 
@@ -74,6 +88,11 @@ const Input = styled.input`
    border-bottom: 1px solid #C4C4C4;
    margin-top: 28px;
    outline: none;
+   @media only screen and (max-width: 800px) {
+     margin-top: 1.5rem;
+     margin-bottom: 1.5rem;
+
+    }
 `
 const ForgotPassword = styled.div`
 margin-top: 5px;

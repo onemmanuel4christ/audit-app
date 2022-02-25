@@ -4,14 +4,18 @@ import styled from 'styled-components'
 const Container = styled.div`
     background-color: #0F0F0F;
     position: sticky;
-    height: 86px;
-    padding: auto;
+    padding: 10px;
     top: 0;
     left: 0;
     z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: center;  
+    justify-content: center; 
+    @media only screen and (max-width: 800px) {
+        justify-content: center; 
+        padding: 15px;
+   } 
+   
 `;
 const Contents = styled.div`
     display: flex;
@@ -19,10 +23,17 @@ const Contents = styled.div`
     align-items: center;
     justify-content: center;
     justify-content: space-between;
+    @media only screen and (max-width: 800px) {
+        justify-content: center; 
+        padding: 15px;
+   } 
 `
 const Left = styled.div`
     display: flex;
     gap: 68;
+    @media only screen and (max-width: 800px) {
+    display: none;
+    }
 `
 const MailWrapper = styled.div`
    a{
@@ -31,7 +42,7 @@ const MailWrapper = styled.div`
     text-decoration: none;
     color: inherit;
    }
-        
+  
 `
 const MailIcon = styled.img`
     width: 35px;
@@ -55,17 +66,33 @@ const MailUrl = styled.a`
 `
 const Center = styled.div`
  margin-left: 64px;
- margin-right: 313px;   
- h3{
+ margin-right: 313px;  
+ @media only screen and (max-width: 800px) {
+     margin: 0;
+     display: flex;
+     align-items: center;
+     justify-content: start;
+
+    } 
+ span{
      font-weight: 700;
      font-size: 24px;
+     text-align: center;
+     @media only screen and (max-width: 800px) {
+     font-size: 1.5rem;
+    }
+
  }
+
 `
 const Right = styled.div`
     display: flex;
     align-items: center;
     font-weight: 700;
     font-size: 16px;
+    @media only screen and (max-width: 800px) {
+        display: none;
+    }
 `
 const Navbar = () => {
     return(
@@ -93,11 +120,11 @@ const Navbar = () => {
                     </MailWrapper>
                 </Left>
                 <Center>
-                    <h3>
+                    <span>
                         <Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>
                             AUDIT MANAGEMENT SYSTEM
                         </Link>
-                    </h3>
+                    </span>
                 </Center>
                 <Right>
                     <Link to="/login" style={{textDecoration: 'none', color: 'inherit'}}>

@@ -25,6 +25,10 @@ const Form = styled.form`
     margin-left: 20px;
     margin-right: 20px;
     background-color: #FFFFFF;
+    @media only screen and (max-width: 800px) {
+     display: flex;
+     flex-direction: column;
+    }
 
 `
 const InnputContainer = styled.div`
@@ -32,7 +36,10 @@ const InnputContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    /* gap: 23px; */
+    @media only screen and (max-width: 800px) {
+     display: flex;
+    flex-direction: column;
+  }
 
 `
 const InputArea = styled.div`
@@ -40,7 +47,7 @@ const InputArea = styled.div`
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-
+  
 `
 const DateWrapper = styled.div`
 display: flex;
@@ -69,6 +76,7 @@ const Input= styled.input`
         font-weight: 400;
         font-size: 12px;
     }
+    
 `
 const FileArea= styled.div`
   /* margin-left: 60%; */
@@ -81,6 +89,9 @@ const FileArea= styled.div`
       font-size: 14px;
       font-weight: 400;
   }
+  @media only screen and (max-width: 800px) {
+     width: 100%;
+    }
 `
 const FileLabel= styled.label`
  display: flex;
@@ -99,6 +110,9 @@ const FileLabel= styled.label`
     color: #000000;  
     border: 2px solid #05A850;  
  }
+ @media only screen and (max-width: 800px) {
+    padding: 1rem;
+    }
 `
 
 const Label = styled.label`
@@ -110,6 +124,9 @@ const SaveDiv = styled.div`
     align-items: center;
     justify-content: flex-end;
     padding: 10px 35px;
+    @media only screen and (max-width: 800px) {
+     width: 100%;
+    }
 
 `
 const SaveButton = styled.div`
@@ -128,6 +145,12 @@ width: 143px;
      background-color: #05A850;
      color: white;
  }
+ @media only screen and (max-width: 800px) {
+     margin: 1rem;
+     width: 100%;
+     padding: 1rem;
+     font-size: 1rem;
+    }
 
 
 `

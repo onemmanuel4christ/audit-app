@@ -12,6 +12,9 @@ const Wrap = styled.div`
 
 const Side = styled.div`
   height: calc(100vh - 86px);
+  @media only screen and (max-width: 800px) {
+     display: none;
+    }
 
 `
 // const SideOpen = styled.div`
@@ -35,6 +38,7 @@ const CalenderWrapper = styled.div`
   width: 339px;
   max-width: 339px;
   background-color: rgba(5, 168, 80, 0.1);
+  
 
 `
 const NotifyTitle = styled.h2`
@@ -87,6 +91,9 @@ const StatusBar = styled.div`
   display: flex;
   margin-left: 40px;
   margin-top: 24px;
+  @media only screen and (max-width: 800px) {
+     flex-direction: column;
+    }
 `
 const StatusContainer = styled.div`
     width: 250px;
@@ -98,6 +105,10 @@ const StatusContainer = styled.div`
     margin-right: 15px;
     padding: 5px;
     border-radius: 5px;
+    @media only screen and (max-width: 800px) {
+     width: 100%;
+     margin-bottom: 1rem;
+    }
 `
 const StatusIcon = styled.div`
   background-color:  ${props => props.bgColor};
@@ -140,11 +151,14 @@ const Body = styled.div`
   padding-left: 35px;
   padding-right: 35px;
   justify-content: space-between;
+  @media only screen and (max-width: 800px) {
+     width: 100%;
+  }
 `
 const FilterSection = styled.div`
  display: flex;
-
-  `
+ 
+`
   const SelectBox = styled.select`
    margin-left: 10px;
    padding: 5px;
@@ -176,6 +190,9 @@ const FilterSection = styled.div`
   border: 1px solid #C4C4C4;
   border-radius: 5px;
   margin-left: 5px;
+  @media only screen and (max-width: 800px) {
+     width: 100%;
+    }
   
   `
 const Input = styled.input`

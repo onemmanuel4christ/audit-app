@@ -9,34 +9,30 @@ const WrapperDiv = styled.div`
     background-color: #0F0F0FB2;
 
 `
-// const Container = styled.div`
-//     height: calc(100vh - 86px);
-//     object-fit: cover;
-//     display: flex;
-//     flex-direction: column;
-//     background-repeat: no-repeat;
-//     align-items: center;
-//     justify-content: center;
-//     width: 100%;
-// `
 
 const Banner = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     object-fit: cover;
     background-repeat: no-repeat;   
     background-image: url('./images/banner.jpeg');
     background-size: cover;
-    background-position-x: 100%;
+    padding: 5px;
 `
 const Logo = styled.img`
-    margin-top: 20px;
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    margin-top: 68px;
+    @media only screen and (max-width: 800px) {
+    margin: 0;
+    width: 120px;
+    height: 120px;
+    margin-top: 4rem;
+    }
 `
 const Title = styled.span`
     font-weight: 700;
@@ -46,14 +42,24 @@ const Title = styled.span`
     margin-bottom: 20px;
     margin-top: 13px;
     cursor: pointer;
+    text-align: center;
+    @media only screen and (max-width: 800px) {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    
+    }
 `
 const Text = styled.span`
     text-transform: uppercase;
     margin-bottom: 48px;
     color: #FFFFFF;
     text-align: center;
-    
+    @media only screen and (max-width: 800px) {
+    font-size: .8rem;
+    /* margin: 10px; */
+    margin: 1.5rem;
 
+    }
 `
 const Button = styled.a`
     background-color: #05A850;
@@ -62,13 +68,19 @@ const Button = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 63px;
+    /* height: 63px; */
     border: 0;
+    padding: 10px;
     color: #fff;
     margin-bottom: 107px;
     cursor: pointer;
     text-decoration: none;  
-    border-radius: 5px;      
+    border-radius: 5px;  
+    @media only screen and (max-width: 800px) {
+    width: 80%;
+    font-size: 1rem;
+    margin-top: 1rem;
+    }    
 `
 
 const Home = () => {

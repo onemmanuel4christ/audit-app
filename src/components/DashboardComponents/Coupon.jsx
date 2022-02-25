@@ -37,7 +37,11 @@ const InnputContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    /* gap: 23px; */
+    @media only screen and (max-width: 800px) {
+     display: flex;
+    flex-direction: column;
+  }
+
 
 `
 const InputArea = styled.div`
@@ -85,6 +89,9 @@ display: flex;
       font-size: 14px;
       font-weight: 400;
   }
+  @media only screen and (max-width: 800px) {
+     width: 100%;
+    }
 `
 const FileLabel= styled.label`
  display: flex;

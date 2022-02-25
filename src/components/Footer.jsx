@@ -15,7 +15,13 @@ const Container = styled.div`
     padding-bottom: 18px ;  
     span{
         color: #ffff;
+        text-align: center;
+        padding: 10px;
+        @media only screen and (max-width: 800px) {
+            font-size: 1rem;
+        }
     }
+   
 `
 const Footer = () => {
   return (

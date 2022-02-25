@@ -20,8 +20,10 @@ const HeaderTop = styled.div`
     align-items: center;
     justify-content: space-between;
     background-color: #FFFFFF;
+   
 `
-const LeftSide = styled.div`    
+const LeftSide = styled.div` 
+
 `
 const Logo = styled.img`
     width: 85px;
@@ -29,14 +31,21 @@ const Logo = styled.img`
     border-radius: 50%;
 `
 const Center = styled.div`
+ 
 
 `
 const Title = styled.h1`
     color: #05A850;
+    @media only screen and (max-width: 800px) {
+     font-size: 1rem;
+     font-weight: 600;
+     margin-right: 1rem;
+    }
 `
 const RightSide = styled.div`
 display: flex;
 align-items: center;
+
 `
 const Notification = styled.div`
     position: relative;  
@@ -68,8 +77,12 @@ const UserImageHolder = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 10px;
+    @media only screen and (max-width: 800px) {
+     display: none;
+    }
 `
 const UserAvater = styled.img`
+    
 `
 
 const Greetings = styled.span`
@@ -77,6 +90,9 @@ const Greetings = styled.span`
     color: #0F0F0F;
     font-weight: 400;
     margin-right: 10px;
+    @media only screen and (max-width: 800px) {
+     display: none;
+    }
 `
 
 const MainBody = styled.div`
@@ -126,7 +142,7 @@ const SideBtnDiv = styled.div`
     :hover{
     background-color: #05A850;
     }
-`
+   `
 const Icon = styled.img`
     width: 20px;
     height: 23px;
@@ -139,6 +155,9 @@ const Action = styled.div`
     width: 170px;
     font-size: 14px;
     font-weight: 400;
+    :active{
+        background-color: #05A850;
+    }
 `
 const OutButton = styled.div`
    margin-top: 30px;
@@ -269,7 +288,7 @@ const Dashboard = () => {
                   </Hamburger>
                   }
                         <SidebarItems>
-                      <SideBtnDiv onClick={() => clickHandler("overview")}>
+                        <SideBtnDiv onClick={() => clickHandler("overview")}>
                           <Icon src="./images/btn-icon.svg" />
                         {menuOpen && <Action>Overview</Action>}
                         <>
