@@ -114,7 +114,15 @@ const FileLabel= styled.label`
     padding: 1rem;
     }
 `
+const TableDiv = styled.div`
+    margin: 35px;
+    padding-bottom: 10px;
+    @media only screen and (max-width: 800px) {
+      width: 80%;
+      overflow: auto;
 
+    }
+`
 const Label = styled.label`
     font-weight: 700;
     font-size: 14px;
@@ -217,10 +225,7 @@ width: 143px;
                             </SaveDiv>
                    
                 </Form>
-                <div style={{
-            margin: '35px',
-            paddingBottom: '10px',
-          }}>
+                <TableDiv>
             <table className='table'>
               <thead>
                 <tr>
@@ -303,7 +308,7 @@ width: 143px;
                 </tr>
               </tbody>
             </table>
-          </div>
+          </TableDiv>
         </Wrapper>
     )
 }

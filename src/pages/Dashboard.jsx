@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import { NotificationsNone } from '@material-ui/icons';
+import { Close, MenuOutlined, NotificationsNone } from '@material-ui/icons';
 import Overview from '../components/DashboardComponents/Overview';
 import Registeration from '../components/DashboardComponents/Registeration';
 import Insurance from '../components/DashboardComponents/Insurance';
@@ -13,6 +13,7 @@ import Reports from '../components/DashboardComponents/Reports';
 const WrapperDiv = styled.div`
     width: 100%;
     height: 100%;
+   
 `
 const HeaderTop = styled.div`
     padding: 0 20px;
@@ -45,6 +46,13 @@ const Title = styled.h1`
 const RightSide = styled.div`
 display: flex;
 align-items: center;
+span{
+   svg{
+    @media only screen and (max-width: 800px) {
+     display: none;
+    }
+   }
+}
 
 `
 const Notification = styled.div`
@@ -108,6 +116,20 @@ color: #ffff;
 position: sticky;
 left: 0;
 top: 86px;
+
+    
+`
+const SideBarMobile = styled.div`
+position: relative;
+background-color: black;
+height: calc(100vh - 86px);
+color: #ffff;
+position: sticky;
+left: 0;
+top: 86px;
+@media only screen and (max-width: 800px) {
+     display: none;
+    }
 `
 const Hamburger = styled.div`
 position: absolute;
@@ -117,6 +139,9 @@ top: 15px;
 left: 70%;
 cursor: pointer;
 color: #FFFFFF;
+@media only screen and (max-width: 800px) {
+display: none;
+}
 `
 const HmLine = styled.div`
     width: 100%;
@@ -131,6 +156,10 @@ display: flex;
 flex-direction: column;
 margin-left: 2px;
 margin-top: 86px;
+@media only screen and (max-width: 800px) {
+    margin-top: 2rem;
+
+    }
 `
 const SideBtnDiv = styled.div`
     display: flex;
@@ -142,6 +171,7 @@ const SideBtnDiv = styled.div`
     :hover{
     background-color: #05A850;
     }
+   
    `
 const Icon = styled.img`
     width: 20px;
@@ -158,6 +188,7 @@ const Action = styled.div`
     :active{
         background-color: #05A850;
     }
+   
 `
 const OutButton = styled.div`
    margin-top: 30px;
@@ -195,9 +226,16 @@ display: flex;
 justify-content: space-between;
 `
 
+const MobileMenu = styled.div`
+@media only screen and (min-width: 800px) {
+   display: none;
+
+    }
+`
 const Dashboard = () => {
     
     const [menuOpen, setMenuOpen] = useState(false)
+    const [mobileOpen, setMobileOpen] = useState(false)
     const [component, setComponent] = useState(<Overview />)
     let timeOfDay;
     const date = new Date();
@@ -271,106 +309,214 @@ const Dashboard = () => {
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H10L5 5L0 0Z" fill="#0F0F0F" />
                       </svg>
                 </span>
+                      <MobileMenu  onClick={() =>{setMobileOpen(!mobileOpen)
+                                            setMenuOpen(true)
+                                    }}>
+                                {mobileOpen ?<MenuOutlined /> : <Close />}  
+                      </MobileMenu>
               </RightSide>
           </HeaderTop>
           <MainBody>
+              {!mobileOpen ?
               <SideBar>
-                 {!menuOpen ?  <Hamburger onClick={() =>setMenuOpen(!menuOpen)}>
-                  <HmLine />
-                  <HmLine />
-                  <HmLine />
-                  </Hamburger> 
-                  : <Hamburger onClick={() =>setMenuOpen(!menuOpen)}>
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="white" fill-opacity="0.7"/>
-                    </svg>
+              {!menuOpen ?  <Hamburger onClick={() =>setMenuOpen(!menuOpen)}>
+               <HmLine />
+               <HmLine />
+               <HmLine />
+               </Hamburger> 
+               : <Hamburger onClick={() =>setMenuOpen(!menuOpen)
+              
+               }>
+                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="white" fill-opacity="0.7"/>
+                 </svg>
 
-                  </Hamburger>
-                  }
-                        <SidebarItems>
-                        <SideBtnDiv onClick={() => clickHandler("overview")}>
-                          <Icon src="./images/btn-icon.svg" />
-                        {menuOpen && <Action>Overview</Action>}
-                        <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
-                      <SideBtnDiv onClick={() => clickHandler("registeration")}>
-                          <Icon src="./images/btn-icon.svg" />
-                          {menuOpen && <Action>Registration of Vehicles</Action>}
-                          <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
-                      <SideBtnDiv onClick={() => clickHandler("insurance")}>
-                          <Icon src="./images/btn-icon.svg" />
-                          {menuOpen && <Action>Insurance</Action>}
-                          <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
-                      <SideBtnDiv onClick={() => clickHandler("drivers")}>
-                          <Icon src="./images/btn-icon.svg" />
-                          {menuOpen && <Action>Drivers</Action>}
-                          <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
-                      <SideBtnDiv onClick={() => clickHandler("filling-station")}>
-                          <Icon src="./images/btn-icon.svg" />
-                          {menuOpen && <Action>Filling Stations</Action>}
-                          <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
+               </Hamburger>
+               }
+                     <SidebarItems>
+                     <SideBtnDiv onClick={() => clickHandler("overview")}>
+                       <Icon src="./images/btn-icon.svg" />
+                     {menuOpen && <Action>Overview</Action>}
+                     <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("registeration")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Registration of Vehicles</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("insurance")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Insurance</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("drivers")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Drivers</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("filling-station")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Filling Stations</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
 
-                      <SideBtnDiv onClick={() => clickHandler("coupon")}>
-                          <Icon src="./images/btn-icon.svg" />
-                          {menuOpen && <Action>Coupons</Action>}
-                          <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("coupon")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Coupons</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
 
-                      <SideBtnDiv onClick={() => clickHandler("payments")}>
-                          <Icon src="./images/btn-icon.svg" />
-                          {menuOpen && <Action>Payments</Action>}
-                                <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("payments")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Payments</Action>}
+                             <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
 
-                      <SideBtnDiv onClick={() => clickHandler("reports")}>
-                          <Icon src="./images/btn-icon.svg" />
-                          {menuOpen && <Action>Audit Reports</Action>}
-                                <>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
-                                </svg>
-                                </>
-                      </SideBtnDiv>
-                  </SidebarItems>
-                        {!menuOpen ? 
-                                <OutButton>
-                                    <Icon src="./images/logout-rounded.png" />
-                                </OutButton> 
-                            : <LogoutBtn>Logout</LogoutBtn>
-                        }
-                    </SideBar>
+                   <SideBtnDiv onClick={() => clickHandler("reports")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Audit Reports</Action>}
+                             <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+               </SidebarItems>
+                     {!menuOpen ? 
+                             <OutButton>
+                                 <Icon src="./images/logout-rounded.png" />
+                             </OutButton> 
+                         : <LogoutBtn>Logout</LogoutBtn>
+                     }
+                 </SideBar> :
+                 <SideBarMobile>
+                      {!menuOpen ?  <Hamburger onClick={() =>setMenuOpen(!menuOpen)}>
+               <HmLine />
+               <HmLine />
+               <HmLine />
+               </Hamburger> 
+               : <Hamburger onClick={() =>setMenuOpen(!menuOpen)
+              
+               }>
+                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M20 2.01429L17.9857 0L10 7.98571L2.01429 0L0 2.01429L7.98571 10L0 17.9857L2.01429 20L10 12.0143L17.9857 20L20 17.9857L12.0143 10L20 2.01429Z" fill="white" fill-opacity="0.7"/>
+                 </svg>
+
+               </Hamburger>
+               }
+                     <SidebarItems>
+                     <SideBtnDiv onClick={() => clickHandler("overview")}>
+                       <Icon src="./images/btn-icon.svg" />
+                     {menuOpen && <Action>Overview</Action>}
+                     <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("registeration")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Registration of Vehicles</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("insurance")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Insurance</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("drivers")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Drivers</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+                   <SideBtnDiv onClick={() => clickHandler("filling-station")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Filling Stations</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+
+                   <SideBtnDiv onClick={() => clickHandler("coupon")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Coupons</Action>}
+                       <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+
+                   <SideBtnDiv onClick={() => clickHandler("payments")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Payments</Action>}
+                             <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+
+                   <SideBtnDiv onClick={() => clickHandler("reports")}>
+                       <Icon src="./images/btn-icon.svg" />
+                       {menuOpen && <Action>Audit Reports</Action>}
+                             <>
+                             <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path fill-rule="evenodd" clip-rule="evenodd" d="M-3.86836e-07 2.15022L1.41421 0.585787L6.12132 5.79289L1.41421 11L-6.83836e-08 9.43557L3.29289 5.79289L-3.86836e-07 2.15022Z" fill="white"/>
+                             </svg>
+                             </>
+                   </SideBtnDiv>
+               </SidebarItems>
+                     {!menuOpen ? 
+                             <OutButton>
+                                 <Icon src="./images/logout-rounded.png" />
+                             </OutButton> 
+                         : <LogoutBtn>Logout</LogoutBtn>
+                     }
+                 </SideBarMobile>
+                 }
             <Contents>
                   {component}
               </Contents>
