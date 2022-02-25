@@ -61,6 +61,15 @@ const Input= styled.input`
         font-size: 12px;
     }
 `
+const TableDiv = styled.div`
+    margin: 35px;
+    padding-bottom: 10px;
+    @media only screen and (max-width: 800px) {
+      width: 90%;
+      overflow: auto;
+
+    }
+`
 const FileArea= styled.div`
 display: flex;
   align-items: center;
@@ -173,10 +182,7 @@ width: 143px;
                             </SaveDiv>
                    
                 </Form>
-                <div style={{
-            margin: '35px',
-            paddingBottom: '10px',
-          }}>
+                <TableDiv>
             <table className='table'>
               <thead>
                 <tr>
@@ -259,7 +265,7 @@ width: 143px;
                 </tr>
               </tbody>
             </table>
-          </div>
+          </TableDiv>
         </Wrapper>
     )
 }

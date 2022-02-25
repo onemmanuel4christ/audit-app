@@ -118,7 +118,7 @@ const TableDiv = styled.div`
     margin: 35px;
     padding-bottom: 10px;
     @media only screen and (max-width: 800px) {
-      width: 80%;
+      width: 90%;
       overflow: auto;
 
     }

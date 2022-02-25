@@ -155,6 +155,15 @@ const SelectBox = styled.select`
 const OptionBox = styled.option`
 
 `
+const TableDiv = styled.div`
+    margin: 35px;
+    padding-bottom: 10px;
+    @media only screen and (max-width: 800px) {
+      width: 90%;
+      overflow: auto;
+
+    }
+`
  const Coupon = () => {
     const [myDate, setMyDate]= useState(null);
     
@@ -235,10 +244,7 @@ const OptionBox = styled.option`
                             </SaveDiv>
                    
                 </Form>
-                <div style={{
-            margin: '35px',
-            paddingBottom: '10px',
-          }}>
+                <TableDiv>
             <table className='table'>
               <thead>
                 <tr>
@@ -321,7 +327,7 @@ const OptionBox = styled.option`
                 </tr>
               </tbody>
             </table>
-          </div>
+          </TableDiv>
         </Wrapper>
     )
 }

@@ -17,6 +17,15 @@ const Side = styled.div`
     }
 
 `
+const TableDiv = styled.div`
+    margin: 35px;
+    padding-bottom: 10px;
+    @media only screen and (max-width: 800px) {
+      width: 90%;
+      overflow: auto;
+
+    }
+`
 // const SideOpen = styled.div`
 // position: absolute;
 // width: 28px;
@@ -307,10 +316,7 @@ let readMessage = false;
             </FilterSection>
            
           </Body>
-          <div style={{
-            margin: '35px',
-            paddingBottom: '10px',
-          }}>
+          <TableDiv>
             <table className='table'>
               <thead>
                 <tr>
@@ -433,7 +439,7 @@ let readMessage = false;
                 
               </tbody>
             </table>
-          </div> 
+          </TableDiv> 
         </Main>
       <Side>
             {/* <SideOpen onClick={() =>setSideOpen(!sideOpen)}> 
