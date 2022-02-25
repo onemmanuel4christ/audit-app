@@ -71,10 +71,11 @@ const Input= styled.input`
     }
 `
 const FileArea= styled.div`
-  margin-left: 60%;
+  /* margin-left: 60%; */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 35px;
   span{
       color: #05A850;
       font-size: 14px;
@@ -112,6 +113,10 @@ const SaveDiv = styled.div`
 
 `
 const SaveButton = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 143px;
  font-weight: 400;
  font-size: 18px;
  color: #05A850;
@@ -134,8 +139,8 @@ const SaveButton = styled.div`
                 <Form>
                    <InnputContainer>
                             <InputArea>
-                            <Label htmlFor="typeOfVehicle">Enter the type of vehicle</Label>
-                            <Input type="text" placeholder='Vehicle Type' name='vehicleType'/>
+                              <Label htmlFor="typeOfVehicle">Enter the type of vehicle</Label>
+                              <Input type="text" placeholder='Vehicle Type' name='vehicleType'/>
                             </InputArea>
                             <InputArea>
                             <FileArea>
@@ -145,10 +150,8 @@ const SaveButton = styled.div`
                                 <span>Attach file</span>
                                 <FileLabel htmlFor="files">Browse...</FileLabel>
                                <input type="file" id='files' hidden={true} />
-                            </FileArea>
-                                
-                            </InputArea>
-                            
+                            </FileArea>     
+                            </InputArea>        
                    </InnputContainer>
                    <InnputContainer>
                             <InputArea>

@@ -11,7 +11,8 @@ const Wrap = styled.div`
 `
 
 const Side = styled.div`
-  /* position: relative; */
+  height: calc(100vh - 86px);
+
 `
 // const SideOpen = styled.div`
 // position: absolute;
@@ -29,8 +30,6 @@ const Side = styled.div`
 // color: #fff;
 // `
 const CalenderWrapper = styled.div`
-  position: relative;
-  padding: 10px 10px;
   height: calc(100vh - 86px);
   padding: 10px 25px;
   width: 339px;
@@ -203,7 +202,7 @@ cursor: pointer;
 
 
 const Overview = () => {
-  const [sideOpen, setSideOpen] = useState(false);
+  // const [sideOpen, setSideOpen] = useState(false);
   const [myDate, setMyDate]= useState(new Date());
 let readMessage = false;
   return (

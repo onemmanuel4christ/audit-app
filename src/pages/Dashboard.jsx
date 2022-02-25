@@ -189,13 +189,13 @@ const Dashboard = () => {
     }
   
     if (hours < 12) {
-      timeOfDay = 'morning';
+      timeOfDay = 'Morning';
       styles.color = "#D90000";
     } else if (hours >= 12 && hours < 17) {
-      timeOfDay = 'afternoon';
+      timeOfDay = 'Afternoon';
       styles.color = "#05A850";
     } else {
-      timeOfDay = 'night';
+      timeOfDay = 'Night';
       styles.color = "#05A850";
     }
    

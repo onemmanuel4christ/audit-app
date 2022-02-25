@@ -14,11 +14,7 @@ font-weight: 700;
   margin-left: 40px;
   margin-top: 50px;
   margin-bottom: 30px;
-/* margin-left: 35px;
-margin-top: 30px;
-font-size: 24px;
-font-weight: 700;
-color: #494949; */
+
 `
 const Form = styled.form`
     padding: 10px 35px;
@@ -59,10 +55,10 @@ const Input= styled.input`
     }
 `
 const FileArea= styled.div`
-  margin-left: 60%;
-  display: flex;
+ display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 35px;
   span{
       color: #05A850;
       font-size: 14px;
@@ -100,6 +96,10 @@ const SaveDiv = styled.div`
 
 `
 const SaveButton = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 143px;
  font-weight: 400;
  font-size: 18px;
  color: #05A850;

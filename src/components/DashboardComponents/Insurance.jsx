@@ -76,10 +76,10 @@ const Input= styled.input`
     }
 `
 const FileArea= styled.div`
-  margin-left: 60%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 35px;
   span{
       color: #05A850;
       font-size: 14px;
@@ -117,6 +117,10 @@ const SaveDiv = styled.div`
 
 `
 const SaveButton = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 143px;
  font-weight: 400;
  font-size: 18px;
  color: #05A850;

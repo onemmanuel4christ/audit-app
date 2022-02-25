@@ -21,13 +21,16 @@ const WrapperDiv = styled.div`
 // `
 
 const Banner = styled.div`
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     object-fit: cover;
     background-repeat: no-repeat;   
-    background: url('./images/banner.jpeg');
+    background-image: url('./images/banner.jpeg');
+    background-size: cover;
+    background-position-x: 100%;
 `
 const Logo = styled.img`
     margin-top: 20px;
