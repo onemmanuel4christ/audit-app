@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 
 import "react-datepicker/dist/react-datepicker.css";
+import BasicTable from '../BasicTable';
 const Wrapper = styled.div`
 width: 100%;
 `
@@ -180,88 +181,7 @@ width: 143px;
                    
                 </Form>
                 <TableDiv>
-            <table className='table'>
-              <thead>
-                <tr>
-                  <th><input type="checkbox" /></th>
-                  <th>VEHICLE TYPE</th>
-                  <th>VEHICLE MODEL</th>
-                  <th>YEAR OF PURCHASE</th>
-                  <th>REGISTRATION NUMBER</th>
-                  <th>AMOUNT</th>
-                  <th>STATUS</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <BasicTable />
           </TableDiv>
         </Wrapper>
     )

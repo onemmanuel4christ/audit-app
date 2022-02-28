@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
+import styled from 'styled-components';
 import DateMomentUtils from '@date-io/moment'; // choose your lib
 import {
-    // DatePicker,
     KeyboardDatePicker,
     MuiPickersUtilsProvider,
     } from '@material-ui/pickers';
-import styled from 'styled-components';
-// import DatePicker from "react-datepicker";
+import BasicTable from '../BasicTable';
 
-
-import "react-datepicker/dist/react-datepicker.css";
 const Wrapper = styled.div`
 width: 100%;
 `
@@ -62,6 +59,7 @@ justify-content: start;
     border-radius: 5px;
 
 `
+
 const Input= styled.input`
     padding:10px 10px;
     width: 93%;
@@ -162,7 +160,7 @@ width: 143px;
 
 
 `
- const Registeration = () => {
+const Registeration = () => {
     const [myDate, setMyDate] = useState(null);
       return(
         <Wrapper>
@@ -219,95 +217,15 @@ width: 143px;
                                 <Label>Enter Amount</Label>
                                 <Input type="number" placeholder='Amount' name='amt'/>
                             </InputArea>
-                   </InnputContainer>
+                          </InnputContainer>
                             <SaveDiv>
                                 <SaveButton>Submit & Save</SaveButton>
                             </SaveDiv>
                    
                 </Form>
-                <TableDiv>
-            <table className='table'>
-              <thead>
-                <tr>
-                  <th><input type="checkbox" /></th>
-                  <th>VEHICLE TYPE</th>
-                  <th>VEHICLE MODEL</th>
-                  <th>YEAR OF PURCHASE</th>
-                  <th>REGISTRATION NUMBER</th>
-                  <th>AMOUNT</th>
-                  <th>STATUS</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      
+            <TableDiv>
+              <BasicTable />
           </TableDiv>
         </Wrapper>
     )

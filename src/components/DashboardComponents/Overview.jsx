@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Calendar } from "react-calendar"
 import 'bootstrap/dist/css/bootstrap.css'
+import BasicTable from '../BasicTable'
 
 const Wrap = styled.div`
   width: 100%; 
@@ -26,21 +27,6 @@ const TableDiv = styled.div`
 
     }
 `
-// const SideOpen = styled.div`
-// position: absolute;
-// width: 28px;
-// height: 43px;
-// border-radius: 5px;
-// background-color: #0F0F0F;
-// cursor: pointer;
-// color: #fff;
-// display: flex;
-// align-items: center;
-// justify-content: center;
-// top: 280px;
-// left: 0;
-// color: #fff;
-// `
 const CalenderWrapper = styled.div`
   height: calc(100vh - 86px);
   padding: 10px 25px;
@@ -87,7 +73,7 @@ left:260px;
 top: 10;
 `
 const Main = styled.div`
-
+width: 100%;
 `
 const Title = styled.div`
   font-weight: 700;
@@ -154,83 +140,11 @@ const StatusNumber = styled.div`
 const Top = styled.div`
   display: flex;
 `
-const Body = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 35px;
-  padding-right: 35px;
-  justify-content: space-between;
-  @media only screen and (max-width: 800px) {
-     width: 100%;
-  }
-`
-const FilterSection = styled.div`
- display: flex;
- 
-`
-  const SelectBox = styled.select`
-   margin-left: 10px;
-   padding: 5px;
-   border-radius: 5px;
-   outline: none;
-  border: 1px solid #C4C4C4;
-   `
-   const Option = styled.option`
-   display: flex;
-    `
-  //   const ExportDiv = styled.div`
-  //   background-color: #05A850;
-  //   width: 157px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   font-size: 14px;
-  //   font-weight: 400;
-  //   padding: 15px;
-  //   border-radius: 5px;
-  //   gap: 13px;
-  //   span{
-  //     color: #FFFFFF;
-  //   }
-  // `
-  const InputWrapper = styled.div`
-  display: flex;
-  width: 550px;
-  border: 1px solid #C4C4C4;
-  border-radius: 5px;
-  margin-left: 5px;
-  @media only screen and (max-width: 800px) {
-     width: 100%;
-    }
-  
-  `
-const Input = styled.input`
-  flex:1;
-  padding: 14px;
-  border: 0;
-  border-radius: 5px;
-  outline: none;
-`
-const Action = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 5px;
-cursor: pointer;
-  width: 56px;
-  background-color: #05A8501A;
-  height: 51px;
-  svg{
-    width: 17px;
-    height: 19px;
-  }
-`
 
 
 const Overview = () => {
-  // const [sideOpen, setSideOpen] = useState(false);
   const [myDate, setMyDate]= useState(new Date());
-let readMessage = false;
+ let readMessage = false;
   return (
     <Wrap>
       <Main>
@@ -299,155 +213,11 @@ let readMessage = false;
           <Title>
           Management History
           </Title>
-          <Body>
-             <FilterSection>
-              <InputWrapper>
-                  <Input type='text' placeholder='Search' />
-                  <Action>
-                    <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.90106 15.4259C3.08971 15.4259 0 11.9727 0 7.71295C0 3.45321 3.08971 0 6.90106 0C10.7124 0 13.8021 3.45321 13.8021 7.71295C13.8021 9.49533 13.2612 11.1365 12.3528 12.4426L17 17.6365L15.7801 19L11.1328 13.806C9.96424 14.8213 8.49582 15.4259 6.90106 15.4259ZM12.0769 7.71295C12.0769 10.9078 9.75958 13.4977 6.90106 13.4977C4.04255 13.4977 1.72527 10.9078 1.72527 7.71295C1.72527 4.51814 4.04255 1.92824 6.90106 1.92824C9.75958 1.92824 12.0769 4.51814 12.0769 7.71295Z" fill="#8692A6"/>
-                    </svg>
-                  </Action>
-              </InputWrapper>
-              <SelectBox>
-                <Option value="">Select All</Option>
-              </SelectBox>
-              
-            </FilterSection>
-           
-          </Body>
-          <TableDiv>
-            <table className='table'>
-              <thead>
-                <tr>
-                  <th><input type="checkbox" /></th>
-                  <th>VEHICLE TYPE</th>
-                  <th>VEHICLE MODEL</th>
-                  <th>YEAR OF PURCHASE</th>
-                  <th>REGISTRATION NUMBER</th>
-                  <th>AMOUNT</th>
-                  <th>STATUS</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                 <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>suv</td>
-                  <td>suv</td>
-                  <td>12/09/2021</td>
-                  <td>ABC 123D</td>
-                  <td>3,500,000</td>
-                  <td>Pending</td>
-                  <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                  </td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </TableDiv> 
+           <TableDiv>
+            <BasicTable />
+          </TableDiv>
         </Main>
-      <Side>
-            {/* <SideOpen onClick={() =>setSideOpen(!sideOpen)}> 
-                  <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M6.12109 1.56441L4.70688 -2.8672e-05L-0.00022627 5.20708L4.70688 10.4142L6.12109 8.84975L2.8282 5.20708L6.12109 1.56441Z" fill="white"/>
-                  </svg>
-              </SideOpen> */}
-          
+      <Side>           
           <CalenderWrapper>
             <>
                 <Calendar 
