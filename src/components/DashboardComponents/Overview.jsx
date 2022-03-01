@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Calendar } from "react-calendar"
 import 'bootstrap/dist/css/bootstrap.css'
 import BasicTable from '../BasicTable'
+import './calender.css'
 
 const Wrap = styled.div`
   width: 100%; 
@@ -223,6 +224,7 @@ const Overview = () => {
                 <Calendar 
                 onChange={setMyDate} 
                 value={myDate} 
+                className="react-calendar" 
                 />
             </>
           <MyNotificationArea>
