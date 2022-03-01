@@ -1,16 +1,18 @@
 import React, { useMemo } from 'react'
-import { useTable, useSortBy, useGlobalFilter, usePagination } from 'react-table'
+import { useTable, useSortBy, useGlobalFilter, usePagination, useRowSelect } from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import {COLUMNS} from './columns'
 import './table.css'
 import { GlobalFilter } from './GlobalFilter'
+import { CheckBox } from './CheckBox'
 
 
 export default function BasicTable() {
     const columns = useMemo(()=> COLUMNS, [])
     const data = useMemo(()=> MOCK_DATA, [])
     
-    const {getTableProps,
+    const {
+        getTableProps,
         getTableBodyProps,
         headerGroups,
         page,
@@ -22,12 +24,30 @@ export default function BasicTable() {
         gotoPage,
         pageCount,
         prepareRow,
+        selectedFlatRows,
         state,
         setGlobalFilter,
     } = useTable({ 
         columns,
         data
-    }, useGlobalFilter, useSortBy, usePagination)
+    }, useGlobalFilter, useSortBy, usePagination, useRowSelect,
+    (hooks) =>{
+        hooks.visibleColumns.push((columns) =>{
+            return [
+                {
+                    id: 'Selection',
+                    Header: ({ getToggleAllRowsSelectedProps}) => (
+                        <CheckBox {...getToggleAllRowsSelectedProps()} />
+                    ),
+                    Cell: ({ row}) =>(
+                        <CheckBox {...row.getToggleRowSelectedProps()} />
+                    )
+                },
+                ...columns
+            ]
+        })
+    }
+    )
 
     const { globalFilter, pageIndex } = state
     const firstPageRows = page.slice(0, 10) 
@@ -43,7 +63,7 @@ export default function BasicTable() {
                             headerGroup.headers.map(column =>(
                                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')} {''}
                                     <span>
-                                        {column.isSorted ? (column.isSortedDesc ? '[Z-A]': '[A-Z]'): ''}
+                                        {column.isSorted ? (column.isSortedDesc ? '[A-Z]': '[Z-A]'): ''}
                                     </span>
                                 
                                 </th>
@@ -73,7 +93,12 @@ export default function BasicTable() {
             }
         </tbody>
     </table>
-    <div>
+    <div style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        paddingTop: '20px',
+        paddingBottom: '20px',
+    }}>
         <span>
             Page: {" "}
             <strong>
