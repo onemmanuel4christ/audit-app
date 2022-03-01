@@ -9,6 +9,7 @@ import FillingStation from '../components/DashboardComponents/FillingStation';
 import Coupon from '../components/DashboardComponents/Coupon';
 import Payment from '../components/DashboardComponents/Payment';
 import Reports from '../components/DashboardComponents/Reports';
+import { Link } from 'react-router-dom';
 
 const WrapperDiv = styled.div`
     width: 100%;
@@ -410,16 +411,18 @@ const Dashboard = () => {
                    </SideBtnDiv>
                </SidebarItems>
                      {!menuOpen ? 
-                             <OutButton>
+                             <Link to='/'> <OutButton>
                                  <Icon src="./images/logout-rounded.png" />
-                             </OutButton> 
-                         : <LogoutBtn>Logout</LogoutBtn>
+                             </OutButton> </Link>
+                            
+                         : <Link to='/'>
+                         <LogoutBtn>Logout</LogoutBtn>
+                         </Link>
                      }
                  </SideBar> :
 
                  <SideBarMobile>
-              
-                     <SidebarItems>
+                         <SidebarItems>
                      <SideBtnDiv onClick={() => clickHandler("overview")}>
                        <Icon src="./images/btn-icon.svg" />
                      {menuOpen && <Action>Overview</Action>}
@@ -497,10 +500,25 @@ const Dashboard = () => {
                    </SideBtnDiv>
                </SidebarItems>
                      {!menuOpen ? 
+                         <Link to='/' style={{
+                             textDecoration: 'none',
+                             color: 'inherit'
+                         }}>
                              <OutButton>
                                  <Icon src="./images/logout-rounded.png" />
                              </OutButton> 
-                         : <LogoutBtn>Logout</LogoutBtn>
+                         </Link>
+                     
+
+                         : 
+                          <Link to='/' style={{
+                             textDecoration: 'none',
+                             color: 'inherit'
+                         }}>
+                              <LogoutBtn>Logout</LogoutBtn>
+
+                          </Link>
+                         
                      }
                  </SideBarMobile>
                  }

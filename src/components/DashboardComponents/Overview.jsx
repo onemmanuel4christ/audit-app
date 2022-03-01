@@ -72,6 +72,7 @@ width: 10px;
 height: 10px;
 left:260px;
 top: 10;
+cursor: pointer;
 `
 const Main = styled.div`
 width: 100%;
@@ -145,6 +146,7 @@ const Top = styled.div`
 
 const Overview = () => {
   const [myDate, setMyDate]= useState(new Date());
+  const [newMail, setNewMail]= useState(true);
  let readMessage = false;
   return (
     <Wrap>
@@ -229,48 +231,54 @@ const Overview = () => {
             </>
           <MyNotificationArea>
             <NotifyTitle>Notifications</NotifyTitle>
-            <InfoDiv>
-            {readMessage ? 
-            
-            <ReadIndicator>
-              <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.41667 0H0.583333C0.428624 0 0.280251 0.0614581 0.170854 0.170854C0.0614581 0.280251 0 0.428624 0 0.583333V6.41667C0 6.57138 0.0614581 6.71975 0.170854 6.82915C0.280251 6.93854 0.428624 7 0.583333 7H6.41667C6.57138 7 6.71975 6.93854 6.82915 6.82915C6.93854 6.71975 7 6.57138 7 6.41667V0.583333C7 0.428624 6.93854 0.280251 6.82915 0.170854C6.71975 0.0614581 6.57138 0 6.41667 0V0ZM2.91667 5.10417L1.45833 3.65837L1.92208 3.20833L2.91667 4.18425L5.07762 2.04167L5.54167 2.50162L2.91667 5.10417Z" fill="#05A850"/>
-              </svg>
-            </ReadIndicator> 
-            : 
-            <ReadIndicator>
-              <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="7" height="7" fill="#BC1B1B"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20004 3.5L2 2.29996L2.29996 2L3.5 3.20004L4.70004 2L5 2.29996L3.79996 3.5L5 4.70004L4.70004 5L3.5 3.79996L2.29996 5L2 4.70004L3.20004 3.5Z" fill="white"/>
-              </svg>
-            </ReadIndicator>}
-            <span>A file is sent from Admin.</span>
-              <span style={{
-                fontSize: '14px',
-                color: '#0F0F0F80',
-              }}>{myDate.toUTCString()}</span>
-            </InfoDiv>
-            <InfoDiv>
-            {readMessage ? 
-            
-            <ReadIndicator>
-              <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.41667 0H0.583333C0.428624 0 0.280251 0.0614581 0.170854 0.170854C0.0614581 0.280251 0 0.428624 0 0.583333V6.41667C0 6.57138 0.0614581 6.71975 0.170854 6.82915C0.280251 6.93854 0.428624 7 0.583333 7H6.41667C6.57138 7 6.71975 6.93854 6.82915 6.82915C6.93854 6.71975 7 6.57138 7 6.41667V0.583333C7 0.428624 6.93854 0.280251 6.82915 0.170854C6.71975 0.0614581 6.57138 0 6.41667 0V0ZM2.91667 5.10417L1.45833 3.65837L1.92208 3.20833L2.91667 4.18425L5.07762 2.04167L5.54167 2.50162L2.91667 5.10417Z" fill="#05A850"/>
-              </svg>
-            </ReadIndicator> 
-            : 
-            <ReadIndicator>
-              <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="7" height="7" fill="#BC1B1B"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20004 3.5L2 2.29996L2.29996 2L3.5 3.20004L4.70004 2L5 2.29996L3.79996 3.5L5 4.70004L4.70004 5L3.5 3.79996L2.29996 5L2 4.70004L3.20004 3.5Z" fill="white"/>
-              </svg>
-            </ReadIndicator>}
-            <span>A file is sent from Admin.</span>
-              <span style={{
-                fontSize: '14px',
-                color: '#0F0F0F80',
-              }}>{myDate.toUTCString()}</span>
-            </InfoDiv>
+            {/* {
+              newMail && <InfoDiv>
+              {readMessage ? 
+              
+              <ReadIndicator>
+                <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.41667 0H0.583333C0.428624 0 0.280251 0.0614581 0.170854 0.170854C0.0614581 0.280251 0 0.428624 0 0.583333V6.41667C0 6.57138 0.0614581 6.71975 0.170854 6.82915C0.280251 6.93854 0.428624 7 0.583333 7H6.41667C6.57138 7 6.71975 6.93854 6.82915 6.82915C6.93854 6.71975 7 6.57138 7 6.41667V0.583333C7 0.428624 6.93854 0.280251 6.82915 0.170854C6.71975 0.0614581 6.57138 0 6.41667 0V0ZM2.91667 5.10417L1.45833 3.65837L1.92208 3.20833L2.91667 4.18425L5.07762 2.04167L5.54167 2.50162L2.91667 5.10417Z" fill="#05A850"/>
+                </svg>
+              </ReadIndicator> 
+              : 
+              <ReadIndicator>
+                <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="7" height="7" fill="#BC1B1B"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20004 3.5L2 2.29996L2.29996 2L3.5 3.20004L4.70004 2L5 2.29996L3.79996 3.5L5 4.70004L4.70004 5L3.5 3.79996L2.29996 5L2 4.70004L3.20004 3.5Z" fill="white"/>
+                </svg>
+              </ReadIndicator>}
+              <span>A file is sent from Admin.</span>
+                <span style={{
+                  fontSize: '14px',
+                  color: '#0F0F0F80',
+                }}>{myDate.toUTCString()}</span>
+              </InfoDiv>
+            } */}
+            {
+              newMail ? (
+                <InfoDiv>
+              {readMessage ? 
+              
+              <ReadIndicator onClick={() => setNewMail(!newMail)}>
+                <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.41667 0H0.583333C0.428624 0 0.280251 0.0614581 0.170854 0.170854C0.0614581 0.280251 0 0.428624 0 0.583333V6.41667C0 6.57138 0.0614581 6.71975 0.170854 6.82915C0.280251 6.93854 0.428624 7 0.583333 7H6.41667C6.57138 7 6.71975 6.93854 6.82915 6.82915C6.93854 6.71975 7 6.57138 7 6.41667V0.583333C7 0.428624 6.93854 0.280251 6.82915 0.170854C6.71975 0.0614581 6.57138 0 6.41667 0V0ZM2.91667 5.10417L1.45833 3.65837L1.92208 3.20833L2.91667 4.18425L5.07762 2.04167L5.54167 2.50162L2.91667 5.10417Z" fill="#05A850"/>
+                </svg>
+              </ReadIndicator> 
+              : 
+              <ReadIndicator onClick={() => setNewMail(!newMail)}>
+                <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="7" height="7" fill="#BC1B1B"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.20004 3.5L2 2.29996L2.29996 2L3.5 3.20004L4.70004 2L5 2.29996L3.79996 3.5L5 4.70004L4.70004 5L3.5 3.79996L2.29996 5L2 4.70004L3.20004 3.5Z" fill="white"/>
+                </svg>
+              </ReadIndicator>}
+              <span>A file is sent from Admin.</span>
+                <span style={{
+                  fontSize: '14px',
+                  color: '#0F0F0F80',
+                }}>{myDate.toUTCString()}</span>
+              </InfoDiv> 
+              ): 'You have No new Notification!'
+            }
           </MyNotificationArea>
           </CalenderWrapper>    
       </Side> 

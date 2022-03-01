@@ -8,7 +8,7 @@ import { CheckBox } from './CheckBox'
 
 
 export default function BasicTable() {
-    
+
     const columns = useMemo(()=> COLUMNS, [])
     const data = useMemo(()=> MOCK_DATA, [])
     
@@ -65,7 +65,8 @@ export default function BasicTable() {
         color: 'red',
         padding: '5px',
         cursor: 'pointer',
-        border: '1px solid red'
+        border: '1px solid red',
+        borderRadius: '5px',
     }}>Delete All</button>
     </div>
     <table {...getTableProps()}>
