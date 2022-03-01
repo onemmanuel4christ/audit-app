@@ -8,6 +8,7 @@ import { CheckBox } from './CheckBox'
 
 
 export default function BasicTable() {
+    
     const columns = useMemo(()=> COLUMNS, [])
     const data = useMemo(()=> MOCK_DATA, [])
     
@@ -53,7 +54,20 @@ export default function BasicTable() {
     const firstPageRows = page.slice(0, 10) 
   return (
     <>
+    <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+
+    }}>
     <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
+    <button style={{
+        color: 'red',
+        padding: '5px',
+        cursor: 'pointer',
+        border: '1px solid red'
+    }}>Delete All</button>
+    </div>
     <table {...getTableProps()}>
         <thead>
             {
