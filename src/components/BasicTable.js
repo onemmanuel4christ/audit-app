@@ -24,7 +24,7 @@ export default function BasicTable() {
         gotoPage,
         pageCount,
         prepareRow,
-        selectedFlatRows,
+        // selectedFlatRows,
         state,
         setGlobalFilter,
     } = useTable({ 
