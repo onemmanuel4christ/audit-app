@@ -1,4 +1,3 @@
-import { Button } from "@material-ui/core";
 
 export const COLUMNS = [
     {
@@ -32,7 +31,21 @@ export const COLUMNS = [
     },
     {
         Header: 'Status',
-        accessor: 'status'
+        accessor: 'status',
+        Cell: cell => (
+                 <div style={{
+                     display: 'flex',
+                     alignItems: 'center',
+                     backgroundColor: 'rgb(131, 206, 200)',
+                     padding: '3px',
+                     justifyContent: 'center',
+                     borderRadius: '5px',
+                     fontSize: '10',
+                     color: "#FFF"
+                 }}>
+                 <span>Success</span>
+                 </div>
+            )
 
     },
     {
@@ -56,10 +69,10 @@ export const COLUMNS = [
                   alignItems: 'center',
                   justifyContent: 'center',
                   textTransform: "capitalize",
-                  width: '50px',
+                  width: '47px',
               }}>Delete</button>
 
-              <Button style={{
+              <button style={{
                   color: '#05A850',
                   outline: '#05A850',
                   border: '1px solid #05A850',
@@ -69,10 +82,12 @@ export const COLUMNS = [
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  textTransform: "capitalize"
+                  textTransform: "capitalize",
+                  width: '47px',
+
               }}>
                   Edit
-                  </Button>
+                  </button>
           </div>
           )
         
