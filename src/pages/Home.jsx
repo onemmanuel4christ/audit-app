@@ -26,7 +26,7 @@ const Logo = styled.img`
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-top: 68px;
+    /* margin-top: 68px; */
     @media only screen and (max-width: 800px) {
     margin: 0;
     width: 120px;

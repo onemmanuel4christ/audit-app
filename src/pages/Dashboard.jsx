@@ -22,14 +22,15 @@ const HeaderTop = styled.div`
     align-items: center;
     justify-content: space-between;
     background-color: #FFFFFF;
+    margin: 0 90px;
    
 `
 const LeftSide = styled.div` 
 
 `
 const Logo = styled.img`
-    width: 85px;
-    height: 85px;  
+    width: 105px;
+    height: 105px;  
     border-radius: 50%;
 `
 const Center = styled.div`
@@ -166,7 +167,7 @@ const SideBtnDiv = styled.div`
     display: flex;
     align-items: center;
     padding: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     cursor: pointer;
     border-radius: 5px;
     :hover{
