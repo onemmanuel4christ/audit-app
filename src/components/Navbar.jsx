@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-
+import Fade from 'react-reveal/Fade';
+import Bounce from 'react-reveal/Bounce';
 const Container = styled.div`
     background-color: #0F0F0F;
     position: sticky;
-    padding: 10px;
     top: 0;
     left: 0;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center; 
+    height: 154px;
     @media only screen and (max-width: 800px) {
         justify-content: center; 
         padding: 15px;
@@ -99,6 +100,7 @@ const Navbar = () => {
         <Container>
            <Contents>
                 <Left>
+                    <Fade left>
                     <MailWrapper>
                         <a href="mailto:info@njc.gov.ng">
                         
@@ -107,8 +109,10 @@ const Navbar = () => {
                             <p> <span> Email Address: </span><br />
                             info@njc.gov.ng</p>
                         </MailUrl>
-                    </a>
+                        </a>
                     </MailWrapper>
+                    </Fade>
+                    <Fade right>
                     <MailWrapper>
                     <a href="tel:09-4603190">
                        <MailIcon src='./images/tel-icon.svg' alt="mail-icon" />
@@ -118,14 +122,19 @@ const Navbar = () => {
                         </MailUrl>
                     </a>
                     </MailWrapper>
+                    </Fade>
+
                 </Left>
-                <Center>
-                    <span>
-                        <Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>
-                            AUDIT MANAGEMENT SYSTEM
-                        </Link>
-                    </span>
-                </Center>
+                <Bounce top>
+                    <Center>
+                        <span>
+                            <Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>
+                                AUDIT MANAGEMENT SYSTEM
+                            </Link>
+                        </span>
+                    </Center>
+                </Bounce>
+
                 <Right>
                     <Link to="/login" style={{textDecoration: 'none', color: 'inherit'}}>
                         <span>Login</span>

@@ -22,7 +22,7 @@ const HeaderTop = styled.div`
     align-items: center;
     justify-content: space-between;
     background-color: #FFFFFF;
-    margin: 0 90px;
+    margin: 0 10px;
    
 `
 const LeftSide = styled.div` 
@@ -42,7 +42,7 @@ const Title = styled.h1`
     @media only screen and (max-width: 800px) {
      font-size: 1rem;
      font-weight: 600;
-     margin-right: 1rem;
+     /* margin-right: 1rem; */
     }
 `
 const RightSide = styled.div`
@@ -65,8 +65,8 @@ const Notification = styled.div`
 `
 const Badge = styled.span`
     position: absolute;
-    top: -5px;
-    right: -1px;
+    top: -2px;
+    right: 0px;
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -200,7 +200,7 @@ const OutButton = styled.div`
    cursor: pointer;
    margin-left: 5px;
 `
-const LogoutBtn = styled.div`
+const LogoutBtn = styled.a`
     width: 140px;
     padding: 5px;
     color: #ffff;
@@ -211,8 +211,8 @@ const LogoutBtn = styled.div`
     justify-content: center;
     margin-top: 30px;
     margin-left: 5px;
-
     cursor: pointer;
+    text-decoration: none;
     font-weight: bold;
     :hover{
         background-color: #ffff;
@@ -229,8 +229,8 @@ justify-content: space-between;
 `
 
 const MobileMenu = styled.div`
-    @media only screen and (min-width: 800px) {
-        display: none;
+@media only screen and (min-width: 800px) {
+    display: none;
    }
 `
 const Dashboard = () => {
@@ -242,7 +242,7 @@ const Dashboard = () => {
     const date = new Date();
     const hours = date.getHours();
     const styles = {
-      fontSize: 24,
+      fontSize: 18,
       fontWeight: 'bold',
     }
   
@@ -287,6 +287,11 @@ const Dashboard = () => {
   return (
       <WrapperDiv>
           <HeaderTop>
+                        <MobileMenu  onClick={() =>{setMobileOpen(!mobileOpen)
+                                            setMenuOpen(true)
+                                    }}>
+                                {mobileOpen ?<MenuOutlined /> : <Close />}  
+                      </MobileMenu>
               <LeftSide>
                   <Logo src='./images/njc-logo.png' />
               </LeftSide>
@@ -310,11 +315,7 @@ const Dashboard = () => {
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H10L5 5L0 0Z" fill="#0F0F0F" />
                       </svg>
                 </span>
-                      <MobileMenu  onClick={() =>{setMobileOpen(!mobileOpen)
-                                            setMenuOpen(true)
-                                    }}>
-                                {mobileOpen ?<MenuOutlined /> : <Close />}  
-                      </MobileMenu>
+                    
               </RightSide>
           </HeaderTop>
           <MainBody>
@@ -416,9 +417,8 @@ const Dashboard = () => {
                                  <Icon src="./images/logout-rounded.png" />
                              </OutButton> </Link>
                             
-                         : <Link to='/'>
-                         <LogoutBtn>Logout</LogoutBtn>
-                         </Link>
+                         : 
+                         <LogoutBtn href="/">Logout</LogoutBtn>
                      }
                  </SideBar> :
 
@@ -512,13 +512,9 @@ const Dashboard = () => {
                      
 
                          : 
-                          <Link to='/' style={{
-                             textDecoration: 'none',
-                             color: 'inherit'
-                         }}>
-                              <LogoutBtn>Logout</LogoutBtn>
+                         
+                         <LogoutBtn href="/">Logout</LogoutBtn>
 
-                          </Link>
                          
                      }
                  </SideBarMobile>

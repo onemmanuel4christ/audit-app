@@ -10,6 +10,7 @@ const Container = styled.div`
     background-color: #0F0F0F;
     display: flex;
     align-items: center;
+  
     justify-content: center;
     padding-top: 18px;
     padding-bottom: 18px ;  
@@ -17,8 +18,10 @@ const Container = styled.div`
         color: #ffff;
         text-align: center;
         padding: 10px;
+        font-size: 12px;
+        font-weight: 400;
         @media only screen and (max-width: 800px) {
-            font-size: 1rem;
+            font-size: 10px;
         }
     }
    

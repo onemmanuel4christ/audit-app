@@ -14,6 +14,7 @@ const Top = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
     position: relative;
 `
 const Bottom = styled.div`
@@ -23,8 +24,8 @@ const Bottom = styled.div`
 `
 
 const LoginArea = styled.div`
-    width: 340px;
-    height: 421px;
+    width: 540px;
+    height: 621px;
     position: absolute;
     top: 141px;
     left: center;
@@ -36,9 +37,9 @@ const LoginArea = styled.div`
     align-items: center;
     padding: 23px;
     @media only screen and (max-width: 800px) {
-     /* width: 80%; */
+     width: 80%;
      padding-bottom: 2rem;
-     height: 60vh;
+     height: 70vh;
     }
 `
 const Logo = styled.img`
@@ -75,6 +76,10 @@ margin-top: 30px;
 cursor: pointer;
 text-decoration: none;
 border-radius: 5px;
+margin-top: 80px;
+:hover{
+    color: #ffff;
+}
 @media only screen and (max-width: 800px) {
      width: 80%;
      padding: 1rem;
@@ -86,7 +91,7 @@ const Input = styled.input`
    width: 90%; 
    border: 0;
    border-bottom: 1px solid #C4C4C4;
-   margin-top: 28px;
+   margin-top: 57px;
    outline: none;
    @media only screen and (max-width: 800px) {
      margin-top: 1.5rem;
@@ -95,7 +100,7 @@ const Input = styled.input`
     }
 `
 const ForgotPassword = styled.div`
-margin-top: 5px;
+margin-top: 10px;
 width: 100%;
 display: flex;
 align-items: center;
@@ -103,12 +108,15 @@ justify-content: space-between;
 span{
     margin-right: 10px;
     font-size: 12px;
-    color: #0F0F0F; 
+    color: #0F0F0F;
 }
 `
 const CheckBox = styled.input`
+
 margin-left: 15px;
 border: 1px solid #05A850;
+margin-right: 5px;
+
 `
 const Text = styled.div`
 display: flex;
@@ -128,8 +136,8 @@ const LoginPage = () => {
                             National Judicial council. <br /> Welcome!
                         </Title>
                   <Form >
-                      <Input type='text' placeholder='Enter User-id' />
-                      <Input type='password' placeholder='Password' />
+                      <Input type='text' placeholder='Enter Username' />
+                      <Input type='password' placeholder='Enter password' />
                       <ForgotPassword>
                           <Text>
                             <CheckBox type='checkbox'/>
